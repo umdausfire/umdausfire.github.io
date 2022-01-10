@@ -1,0 +1,240 @@
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="../../img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="colorlib">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Personal</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="../../css/linearicons.css">
+			<link rel="stylesheet" href="../../css/font-awesome.min.css">
+			<link rel="stylesheet" href="../../css/bootstrap.css">
+			<link rel="stylesheet" href="../../css/magnific-popup.css">			
+			<link rel="stylesheet" href="../../css/nice-select.css">							
+			<link rel="stylesheet" href="../../css/animate.min.css">
+			<link rel="stylesheet" href="../../css/owl.carousel.css">			
+			<link rel="stylesheet" href="../../css/jquery-ui.css">			
+			<link rel="stylesheet" href="../../css/main.css">
+			<link href="../../css/icofont/icofont.min.css" rel="stylesheet">
+		    <link href="../../css/remixicon/remixicon.css" rel="stylesheet">
+		    <link href="../../css/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+		    <link href="../../css/boxicons/css/boxicons.min.css" rel="stylesheet">
+		    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+		    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171009851-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'UA-171009851-1');
+            </script>
+		</head>
+		<body>	
+		<!-- EDIT ME -->
+		  <header id="header">
+		    <div class="container main-menu">
+		    	<div class="row align-items-center justify-content-between d-flex">
+			      <div id="logo">
+			        <a href="../index.html"><img src="../../img/logos/1.png" width="48px" alt="" title="" /></a>
+			      </div>
+			      <nav id="nav-menu-container">
+			        <ul class="nav-menu">
+			          <li><a href="../../index.html">Home</a></li>
+                      <li><a href="../../teaching.html">Teaching</a></li>
+			        </ul>
+			      </nav><!-- #nav-menu-container -->		    		
+		    	</div>
+		    </div>
+		  </header><!-- #header -->
+		  <!-- EDIT ME -->
+		  
+
+			<section class="sample-text-area">
+                <div class="container">
+                    <h3 class="text-heading"></h3>
+                </div>
+            </section>
+
+            
+			<!-- End Sample Area -->
+			<!-- Start Align Area -->
+			<div class="whole-wrap">
+				<div class="container">
+					<div class="section-top-border">
+						<!-- <h2><b>FIRE298: FIRE Semester 3</b></h2>
+						<h3><b>Section 0108: Autonomous Unmanned Systems</b></h3> -->
+						<!-- <div class="row"> -->
+							<!-- <div class="col-md-6 mt-sm-20 left-align-p">
+								<div class="">
+									<ul class="unordered-list">
+                                    <h3> Table of Contents: </h3><br>
+                                    <li> <a href="#whatisanimu"> What is an IMU?</a> </li>
+                                    <li> <a href="#mathimu"> Isn't Attitude Estimation trivial?</a> </li>
+                                    <li> <a href="#cf"> Complementary Filter</a> </li>
+                                    <li> <a href="#ref"> References</a> </li>
+									</ul>
+							</div> -->
+							<!-- </div> -->
+							<!-- <div class="col-md-6 mt-sm-20 right-align-p">
+								<img src="img/research/PRGFlow.png" alt="" class="img-fluid">
+							</div> -->
+							<div class="row">
+								<div class="col-lg-2 col-md-2 mt-sm-8 right-align-p">
+								<img src="../../img/teaching/fireausicon.webp" alt="" class="img-fluid">
+							</div>
+							<div class="col-lg-6 col-md-6 mt-sm-20 left-align-p">
+								<h2 class="mb-30">ASN2</h2>
+								<h3><b> Finding Survivors AKA Barrel!</b></h3>
+							</div>
+							
+						</div>
+						</div>
+						<hr>
+                       
+            <h3> Deadline </h3><br>
+            <h4>September 28, 2021 at 11:59:59 PM. Only one submission per group.</h4><br><br>
+
+			<h3> What you need to do? </h3><br>
+			Since most of the projects you pitched in ASN1 involves some form of robot perception: interpretting data from a robot's sensors, in this assignment you'll work on data from a color camera. The reason for the choice of this sensor is because of its cost-effectiveness and the ubiquitous nature of the sensors. Moreover, one can get a lot of things done with images/video from a color camera. <br><br>
+
+			Your task is to detect and draw oriented bounding boxes (the length axis of the bounding box is parallel to the vertical part of the barrel) around the orange cylindrical traffic barrel which acts as our makeshift replacement for a disaster survivor. Note that, this barrel has two horizontal white stripes around on body. There are other orange cylinders (let's call them non-survivors and they don't have white bars) in the environment that should not be detected. More than one survivor can be present at a time and all of them need to be detected: Remember, leave no survivors behind. <br><br>
+
+			<a id="step0"></a>
+			<h4> Step 0: Prep your System</h4><br>
+			Install OpenCV (version >= 3.3) and any other additional packages you'll need to complete this project. Feel free to use numpy and scipy among other packages. The project has to be completed in Python (version >= 3.6). It is recommended to use a machine with a Linux installation, specifically <a href="https://releases.ubuntu.com/20.04/">Ubuntu 20.04</a> either as a dual-boot or a virtual machine like <a href="https://www.virtualbox.org/">Virtual Box</a>. Alternatively, windows users can use <a href="https://docs.microsoft.com/en-us/windows/wsl/install">Windows Subsystem for Linux</a>. For MacOS users, I would highly recommend using Virtual Box. Alternatively, check out <a href="https://gist.github.com/vfdev-5/b7685371071036cb739f23b3794b5b83">this</a> thread on Github or <a href="https://docs.freedomrobotics.ai/docs/ros-development-in-docker-on-mac-and-windows">this</a> tutorial or <a href="https://aralroca.com/blog/opencv-in-the-web">run it in your browser</a>. <b>Note that I have not tested either of the docker methods on Mac, but the Virtual Box method works great</b>.<br><br>
+
+
+			<h4> Step 1: Download Data and Understand basic concepts</h4><br>
+			The data is given in the form of a RGB color video in .mp4 format and can be downloaded from <a href="https://drive.google.com/file/d/1EEcGXz08USqsBEHm7W83I20Dyjo5_qar/view?usp=sharing">here</a> and is shown below for preview. Feel free to convert the video to frames for debugging. Read and visualize the video to understand how the data looks. A written and extended version of today's class (21 Sept 2021) can be found <a href='https://cmsc426.github.io/colorseg/'>here</a>. You don't have to read everything from this, treat this as a refresher to today's class with a few advanced concepts.  <br><br>
+
+
+			<iframe src="https://drive.google.com/file/d/1EEcGXz08USqsBEHm7W83I20Dyjo5_qar/preview" width="640" height="480" allow="autoplay"></iframe><br>
+			Video in which barrel has to be detected.<br><br>
+
+
+
+			<h4> Step 2: Make your own survivor detector</h4><br>
+			Come up with any method to detect survivors given you have no constraint on computing time or memory requirement. Feel free to use something as basic as color segmentation to pattern matching or deep learning. A sample output for somne simple frames are shown in Fig. 1 and for complex frames are shown in Fig. 2.<br><br>
+
+
+			<img src="../../img/asn2/1.png" width=50% alt="" class="img-fluid"><br>
+			Fig. 1: Sample output on frames from the video for easy samples.<br><br>
+
+			<img src="../../img/asn2/2.png" width=50% alt="" class="img-fluid"><br>
+			Fig. 2: Sample output on frames from the video for a hard sample.<br><br>
+
+
+			<h4> Step 3: Make your results better (Optional for Extra credit of upto 25%)</h4><br>
+			Now that you have detected survivors in every frame of the video, you can be creative and fuse readings from multiple frames by filtering them. <br><br>
+
+
+			<h3> Using third-party code</h3><br>
+			You are allowed to use any code available on the internet with an appropriate citation. However, you are not allowed to submit any other classmate's work as your own. Remember collabotation amongst classmates is encouraged but plagiarism is strictly prohibited. <br><br>
+
+
+            <h3> What you need to submit? </h3><br>
+            A report in double column IEEE format (maximum of 6 pages) in LaTeX per group along with a .mp4 video all zipped together into one .zip file. Your report should be of <a href="https://github.com/NitinJSanket/ESE650Project1/blob/master/Report/ESE650Project1.pdf">this</a> quality.<br><br>
+
+            <b>Your report should include the following:</b><br>
+            <ul class="unordered-list">
+            <li> Names of the team members and the team</li>
+            <li> Detailed description of your approach</li>
+            <li> Failure cases or shortcomings of your approach</li>
+            <li> Sample image outputs (bounding boxes overlaid)</li>
+            <li> Appropriate references for any methods or code used (you can use .bib files to make your life easier)</li>
+            <li> Distribution of work amongst team-members</li>
+            </ul>
+            <br><br>
+
+            You can use any LaTeX tool you like, I would recommend <a href='https://www.overleaf.com/'>Overleaf</a> as it is free and you can use it to collaborate online. If you are new to LaTeX, you can <a href='https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes'>learn from this awesome tutorial</a> from Overleaf. Alternatively, if you want to work locally, you can use any of <a href='https://beebom.com/best-latex-editors/'>these editors</a>. The LaTeX template can be found <a href='https://www.ieee.org/conferences/publishing/templates.html'>here</a>. The submission should be made through ELMS with the name ASN2.<br><br>
+
+
+            <b>Your .mp4 video is the oriented bounding box(es) output overlaid on the original video.</b><br><br>
+
+            </div>
+        </div>
+    </div>
+
+
+            <!-- EDIT FOOT -->
+            <!-- start footer Area -->
+            <footer class="footer-area section-gap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <div class="single-footer-widget">
+                                <p class="footer-text"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+                            <div class="single-footer-widget">
+                                <h4>Follow Me</h4>
+                                <p>Let us be social</p>
+                                <div class="footer-social d-flex align-items-center">
+                                  <a title="Google Scholar" href="https://scholar.google.com/citations?user=ugyWSWwAAAAJ&hl=en&oi=ao" style="padding-top: 8px" class="ai"><i class="ai ai-google-scholar"></i></a>&nbsp;
+                                  <a title="Github" href="http://github.com/nitinjsanket/" class="github"><i class="fa fa-github"></i></a>&nbsp;
+                                  <a title="Teaching on YouTube" href="http://youtube.com/prgumdteaching" class="youtube"><i class="fa fa-youtube-square"></i></a>&nbsp;
+                                  <a title="LinkedIn" href="https://www.linkedin.com/in/nitinjsanket/" class="linkedin"><i class="fa fa-linkedin-square"></i></a>&nbsp;
+                                  <a title="Twitter" href="http://twitter.com/nitinjsanket" class="twitter"><i class="fa fa-twitter-square"></i></a>&nbsp;
+                                  <a title="500px" href="https://500px.com/nitinjsanket" class="500px"><i class="fa fa-500px"></i></a>&nbsp;
+                                  <a title="Instagram" href="http://instagram.com/firenitin" class="instagram"><i class="fa fa-instagram"></i></a>&nbsp;
+                                  <a title="Photography" href="http://instagram.com/njsphoto" class="camera"><i class="fa fa-camera"></i></a>&nbsp;
+                                  <a title="Facebook" href="http://facebook.com//nitin.jsanket" class="facebook"><i class="fa fa-facebook-square"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- End footer Area -->        
+            <!-- EDIT FOOT -->
+
+			<script src="js/vendor/jquery-2.2.4.min.js"></script>
+			<script src="js/popper.min.js"></script>
+			<script src="js/vendor/bootstrap.min.js"></script>			
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>			
+  			<script src="js/easing.min.js"></script>			
+			<script src="js/hoverIntent.js"></script>
+			<script src="js/superfish.min.js"></script>	
+			<script src="js/jquery.ajaxchimp.min.js"></script>
+			<script src="js/jquery.magnific-popup.min.js"></script>	
+    		<script src="js/jquery.tabs.min.js"></script>						
+			<script src="js/jquery.nice-select.min.js"></script>	
+            <script src="js/isotope.pkgd.min.js"></script>			
+			<script src="js/waypoints.min.js"></script>
+			<script src="js/jquery.counterup.min.js"></script>
+			<script src="js/simple-skillbar.js"></script>							
+			<script src="js/owl.carousel.min.js"></script>							
+			<script src="js/mail-script.js"></script>	
+			<script src="js/main.js"></script>	
+		</body>
+	</html>
+
+
+
+
+
+

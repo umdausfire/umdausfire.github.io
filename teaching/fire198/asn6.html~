@@ -1,0 +1,250 @@
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="../../img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="colorlib">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Personal</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="../../css/linearicons.css">
+			<link rel="stylesheet" href="../../css/font-awesome.min.css">
+			<link rel="stylesheet" href="../../css/bootstrap.css">
+			<link rel="stylesheet" href="../../css/magnific-popup.css">			
+			<link rel="stylesheet" href="../../css/nice-select.css">							
+			<link rel="stylesheet" href="../../css/animate.min.css">
+			<link rel="stylesheet" href="../../css/owl.carousel.css">			
+			<link rel="stylesheet" href="../../css/jquery-ui.css">			
+			<link rel="stylesheet" href="../../css/main.css">
+			<link href="../../css/icofont/icofont.min.css" rel="stylesheet">
+		    <link href="../../css/remixicon/remixicon.css" rel="stylesheet">
+		    <link href="../../css/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+		    <link href="../../css/boxicons/css/boxicons.min.css" rel="stylesheet">
+		    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+		    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171009851-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'UA-171009851-1');
+            </script>
+		</head>
+		<body>	
+		<!-- EDIT ME -->
+		  <header id="header">
+		    <div class="container main-menu">
+		    	<div class="row align-items-center justify-content-between d-flex">
+			      <div id="logo">
+			        <a href="../index.html"><img src="../../img/logos/1.png" width="48px" alt="" title="" /></a>
+			      </div>
+			      <nav id="nav-menu-container">
+			        <ul class="nav-menu">
+			          <li><a href="../../index.html">Home</a></li>
+                      <li><a href="../../teaching.html">Teaching</a></li>
+			        </ul>
+			      </nav><!-- #nav-menu-container -->		    		
+		    	</div>
+		    </div>
+		  </header><!-- #header -->
+		  <!-- EDIT ME -->
+		  
+
+			<section class="sample-text-area">
+                <div class="container">
+                    <h3 class="text-heading"></h3>
+                </div>
+            </section>
+
+            
+			<!-- End Sample Area -->
+			<!-- Start Align Area -->
+			<div class="whole-wrap">
+				<div class="container">
+					<div class="section-top-border">
+						<!-- <h2><b>FIRE298: FIRE Semester 3</b></h2>
+						<h3><b>Section 0108: Autonomous Unmanned Systems</b></h3> -->
+						<!-- <div class="row"> -->
+							<!-- <div class="col-md-6 mt-sm-20 left-align-p">
+								<div class="">
+									<ul class="unordered-list">
+                                    <h3> Table of Contents: </h3><br>
+                                    <li> <a href="#whatisanimu"> What is an IMU?</a> </li>
+                                    <li> <a href="#mathimu"> Isn't Attitude Estimation trivial?</a> </li>
+                                    <li> <a href="#cf"> Complementary Filter</a> </li>
+                                    <li> <a href="#ref"> References</a> </li>
+									</ul>
+							</div> -->
+							<!-- </div> -->
+							<!-- <div class="col-md-6 mt-sm-20 right-align-p">
+								<img src="img/research/PRGFlow.png" alt="" class="img-fluid">
+							</div> -->
+							<div class="row">
+								<div class="col-lg-2 col-md-2 mt-sm-8 right-align-p">
+								<img src="../../img/teaching/fireausicon.webp" alt="" class="img-fluid">
+							</div>
+							<div class="col-lg-6 col-md-6 mt-sm-20 left-align-p">
+								<h2 class="mb-30">ASN3</h2>
+								<h3><b> Drone Search and Rescue!</b></h3>
+							</div>
+							
+						</div>
+						</div>
+						<hr>
+                       
+            <h3> Deadline </h3><br>
+            <h4>October 14, 2021 at 11:59:59 PM. Only one submission per group.</h4><br><br>
+
+			<h3> What you need to do? </h3><br>
+			Since you did so well in ASN1 and ASN2, you have now upgraded your robot's sensor suite. You now have a RGBD camera or a camera that gives aligned (on image) the color RGB image and a separate depth image. An example of such a sensor is the <a href="https://en.wikipedia.org/wiki/Kinect">Microsoft Kinect</a>, however a lot more alternatives such as the <a href="https://store.intelrealsense.com/buy-intel-realsense-depth-camera-d435.html?_ga=2.199725735.847668447.1632988426-384018925.1629684671">Intel RealSense D435i</a> exist. A few more depth sensors can be found on <a href="https://github.com/NitinJSanket/RoboticsHardware/blob/master/Cameras.md#rgbd">my awesome</a> Robotics Hardware collection page. Note that a real depth camera data is noisy, but to make our life simple, our depth camera is perfect, i.e., it has no noise. See Fig. 1 for a sample image of our simulated "perfect" RGB-D sensor. Here, the left half shows the RGB (color) image and the right half shows the depth image/map where brigther color means far and darker color means near (The mapping of the value has depth range of 0 to 20 m and is represented as floating point numbers). We generally denote the RGB image as \(\mathcal{I}\) and the depth image as \(\mathcal{D}\). <br><br>
+
+			<img src="../../img/asn3/Frame0000.png" width=50% alt="" class="img-fluid"><br>
+			Fig. 1: Sample output of our simulated "perfect" RGBD camera.<br><br>
+
+			Your task is to use data from the drone's RGBD camera to navigate through a forest and stop near (within 2 m distance, already programmed in for you) the Survivor from ASN2 (You don't need to use your detector from ASN2, instead we magically obtain a distance to goal, which is given by the <span class=cour>DistToGoal</span> parameter. You'll in particular write a perception (vision) algorithm to detect free-space to avoid collision by moving left/right (you only control the movement or velocity in \(X\) direction) into the trees and barrels (Just using the 
+					image for this might be a simple solution, but you can get creative by using RGB frames as well). <br><br>
+
+			<h3> Download Data </h3><br>
+			The blender file along with its supporting files and the Controller.py starter script can be downloaded as a .zip file from <a href="https://drive.google.com/file/d/1yn5FQd3TFxAIYA2IWb8nwKX46GYdwgHL/view?usp=sharing">here</a>.<br><br>
+
+			A few more details about the simulation/Blender setup are given in the following sections, please understand them before starting the project.<br><br>
+
+			<h3> Robot/Drone Dynamics </h3><br>
+			The drone in this project is a trivialized approximation of the real world. Instead of simulating the actual physics of how propellers generate thrust and how the drone behaves to changes to its motor speeds, we make the assumption that the robot is a simple point object with perfect control and no aerodynamic drag. In particular, the drone maintains it's altitude perfectly at 5 m and it's forward velocity is fixed at 1 m/frame. You need to control the drone to move left/right and the amount it needs to move left/right to avoid collisions and reach the goal.<br><br> 
+
+			<h3> RGBD Data </h3><br>
+			Like we said before, the drone is equipped with an RGBD or a commonly called depth camera. You obtain both RGB images and depth images saved in their respective folders, these are read in the <span class=cour>VisionAndPlanner</span> function. Please go have a look at it. In the depth map, brigther color means far and darker color means near (The mapping of the value has depth range of 0 to 20 m and is represented as floating point numbers). <br><br>
+
+			<h3> Pitfalls AKA WTH is going on?!</h3><br>
+			Here are some common pitfalls you can avoid.<br><br>
+
+			<h4> Did not set correct path in Compositing </h4><br>
+			You'll get an error like <span class=cour>OSError: Cannot read image file "Depth\Depth0000.exr". No such file or directory.</span><br><br>
+			Please set the correct path in the place shown in Fig. 2. <b>Use the full path here not a relative path.</b><br><br>
+
+
+			<img src="../../img/asn3/SettingPath.png" width=70% alt="" class="img-fluid"><br>
+			Fig. 2: Setting the path to save files.<br><br>
+
+			<h4> I thought I saved my code, Blender crashed and I lost it! </h4><br>
+			You'll run into this issue for sure, the save command if you are using Scripting tab in Blender is <span class=cour>Alt + S</span> as  <span class=cour>Ctrl + S</span> saves the Blend file but not the code.<br><br>
+
+			<h4> Why do I have random extra frames? </h4><br>
+			You need to manually (or in code) delete the folder where the <span class=cour>Frames, Depth</span> and <span class=cour>ThirdView</span> is saved before each run. By default the script will only overwrite files that it creates. For eg., if in your first run, the code ran for 100 iterations, it'll create 100 files (numbers from 0 to 99) in each of the folders. Now, if your second run, the code ran for 50 iterations (numbers from 0 to 49), it'll only overwrite the first 50 files (numbers from 0 to 49) and leave the last 50 files untouched (numbers from 50 to 99).<br><br>
+
+
+			<h3> Video Tutorial </h3><br>
+			Watch Chahat's tutorial in-case you missed class or didn't catch something <a href="https://drive.google.com/file/d/1bpalk-aMnsED0Bsgj5NZkrPWIT1BtKMo/view?usp=sharing">here</a>. Then, watch <a href="https://drive.google.com/file/d/1OEdYPjjugTY2In-Z8WA2B1rLixQMYMlp/view?usp=sharing">this video</a> (also embedded below) before you start this project. It explains how the environment is setup and how to get started. Note, I am not supporting student laptops but I do give tips to make things work on Linux (Mac should be pretty similar to Linux) and Windows (a little painful). <b>Be sure to change the paths in lines 8 to 17 as per your computer or else the code won't work</b>. As ASN2 recommended, follow setup instructions from <a href="asn2.html#step0">ASN2 Step 0</a> to install OpenCV. Follow <a href="https://www.blender.org/download/">Blender installation guidelines from the official website</a>.<br><br>
+
+			<iframe src="https://drive.google.com/file/d/1OEdYPjjugTY2In-Z8WA2B1rLixQMYMlp/preview" width="640" height="480" allow="autoplay"></iframe>
+
+			<h3> Make your results better (Optional for Extra credit of upto 25%) </h3><br>
+			Now that you have a successful control policy to avoid obstacles and to reach the goal by issuing a control command based on every frame (this is also known as reactive control), you can you can be creative and fuse readings from multiple frames to get a faster control policy to reach the goal with lesser error. <br><br>
+
+			<h3> Using third-party code</h3><br>
+			You are allowed to use any code available on the internet with an appropriate citation. However, you are not allowed to submit any other classmate's work as your own. Remember collabotation amongst classmates is encouraged but plagiarism is strictly prohibited. <br><br>
+
+
+            <h3> What you need to submit? </h3><br>
+            A report in double column IEEE format (maximum of 6 pages) in LaTeX per group compiled into <span class=cour>.pdf</span>, an <span class=cour>.mp4</span> video made from images of the <span class=cour>ThirdView</span> folder (for your successful run) and another <span class=cour>.mp4</span> video made from images of the <span class=cour>Frames</span> folder (for the successful run as the other video) and finally all your <span class=cour>.py</span> code files to reporoduce your result all zipped together into one <span class=cour>.zip</span> file. <b>I will deduct 25 points if I get multiple submissions from the same group (submitted by more than one person from your group not multiple iterations submitted by the same person).</b>
+
+            Your report should be of <a href="https://github.com/NitinJSanket/ESE650Project1/blob/master/Report/ESE650Project1.pdf">this</a> quality in-terms of content detail. Particularly for ASN3, I expect the report to have mathematical equations (typeset in LaTeX not images obviously) describing your control policy and perception module. If your approach is more algorithmic, <a href="https://www.overleaf.com/learn/latex/Algorithms">then use algorithm (or some other similar package) package in LaTeX to format algorithms.</a><br><br>
+
+            <b>Your report should include the following:</b><br>
+            <ul class="unordered-list">
+            <li> Names of the team members and the team</li>
+            <li> Detailed description of your approach</li>
+            <li> Failure cases or shortcomings of your approach</li>
+            <li> Appropriate references for any methods or code used (you can use .bib files to make your life easier)</li>
+            <li> Distribution of work amongst team-members</li>
+            </ul>
+            <br><br>
+
+            You can use any LaTeX tool you like, I would recommend <a href='https://www.overleaf.com/'>Overleaf</a> as it is free and you can use it to collaborate online. If you are new to LaTeX, you can <a href='https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes'>learn from this awesome tutorial</a> from Overleaf. Alternatively, if you want to work locally, you can use any of <a href='https://beebom.com/best-latex-editors/'>these editors</a>. The LaTeX template can be found <a href='https://www.ieee.org/conferences/publishing/templates.html'>here</a>. The submission should be made through ELMS with the name ASN3.<br><br>
+
+            </div>
+        </div>
+    </div>
+
+
+            <!-- EDIT FOOT -->
+            <!-- start footer Area -->
+            <footer class="footer-area section-gap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <div class="single-footer-widget">
+                                <p class="footer-text"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+                            <div class="single-footer-widget">
+                                <h4>Follow Me</h4>
+                                <p>Let us be social</p>
+                                <div class="footer-social d-flex align-items-center">
+                                  <a title="Google Scholar" href="https://scholar.google.com/citations?user=ugyWSWwAAAAJ&hl=en&oi=ao" style="padding-top: 8px" class="ai"><i class="ai ai-google-scholar"></i></a>&nbsp;
+                                  <a title="Github" href="http://github.com/nitinjsanket/" class="github"><i class="fa fa-github"></i></a>&nbsp;
+                                  <a title="Teaching on YouTube" href="http://youtube.com/prgumdteaching" class="youtube"><i class="fa fa-youtube-square"></i></a>&nbsp;
+                                  <a title="LinkedIn" href="https://www.linkedin.com/in/nitinjsanket/" class="linkedin"><i class="fa fa-linkedin-square"></i></a>&nbsp;
+                                  <a title="Twitter" href="http://twitter.com/nitinjsanket" class="twitter"><i class="fa fa-twitter-square"></i></a>&nbsp;
+                                  <a title="500px" href="https://500px.com/nitinjsanket" class="500px"><i class="fa fa-500px"></i></a>&nbsp;
+                                  <a title="Instagram" href="http://instagram.com/firenitin" class="instagram"><i class="fa fa-instagram"></i></a>&nbsp;
+                                  <a title="Photography" href="http://instagram.com/njsphoto" class="camera"><i class="fa fa-camera"></i></a>&nbsp;
+                                  <a title="Facebook" href="http://facebook.com//nitin.jsanket" class="facebook"><i class="fa fa-facebook-square"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- End footer Area -->        
+            <!-- EDIT FOOT -->
+
+			<script src="js/vendor/jquery-2.2.4.min.js"></script>
+			<script src="js/popper.min.js"></script>
+			<script src="js/vendor/bootstrap.min.js"></script>			
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>			
+  			<script src="js/easing.min.js"></script>			
+			<script src="js/hoverIntent.js"></script>
+			<script src="js/superfish.min.js"></script>	
+			<script src="js/jquery.ajaxchimp.min.js"></script>
+			<script src="js/jquery.magnific-popup.min.js"></script>	
+    		<script src="js/jquery.tabs.min.js"></script>						
+			<script src="js/jquery.nice-select.min.js"></script>	
+            <script src="js/isotope.pkgd.min.js"></script>			
+			<script src="js/waypoints.min.js"></script>
+			<script src="js/jquery.counterup.min.js"></script>
+			<script src="js/simple-skillbar.js"></script>							
+			<script src="js/owl.carousel.min.js"></script>							
+			<script src="js/mail-script.js"></script>	
+			<script src="js/main.js"></script>	
+		</body>
+	</html>
+
+
+
+
+
+
