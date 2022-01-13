@@ -104,8 +104,8 @@
 								<img src="../../img/teaching/fireausicon.webp" alt="" class="img-fluid">
 							</div>
 							<div class="col-lg-6 col-md-6 mt-sm-20 left-align-p">
-								<h2 class="mb-30">ASN2</h2>
-								<h3><b> Let's Become Pythonic!</b></h3>
+								<h2 class="mb-30">ASN4</h2>
+								<h3><b> Let's advance Our Robot Vision!</b></h3>
 							</div>
 							
 						</div>
@@ -113,42 +113,37 @@
 						<hr>
                        
             <h3> Deadline </h3><br>
-            <h4>Feb 08, 2022 at 11:59:59 PM (Individual Submissions).</h4><br><br>
+            <h4>Feb 25, 2022 at 11:59:59 PM (Individual Submissions).</h4><br><br>
 
 			<h3> What you need to do? </h3><br>
-			Intelligence in robots is generally performed in-terms of a computer program or code. One of the most common languages to program robots has been Python due to it's ease of use and learnability. In order to facilitate building autonomous robots, we'll first learn the basics of Python through a set of small yet fun tasks. <br><br>
+			In your last assignment, you detected an orange barrel. Congratulations! However, most real robots need to detect something more sophisticated. Let us go with the example of a self-driving car. Such a car needs to detect traffic barrels to avoid road closures. Particularly, the traffic barrel is an orange colored cylinder (same color as the one from previous assignments) but has two horizontal white stripes around on body. To make the problem more realistic, there are also orange barrels in the video from the previous assignment. Your task is to only detect the traffic barrel. Note that there can be more than one traffic barrel or orange barrel in the same image/video frame. <br><br>
 
-			<a id="step0"></a>
-			<h4> Step 0: Find Your Favorite IDE/Editor</h4><br>
-			Before you run your code to do something cool, you need a place to write your programs/code in. This is called an Editor or an Integrated Development Environment (IDE). There are a lot of amazing editors/IDEs around developed by the amazing community of developers. Each of these tools have their own great set of features and visual appeal. To a large extent the choice of the IDE/Editor also comes down to personal preference. Currently, most common choices for Python are <a href="https://www.sublimetext.com/">Sublime Text</a>, <a href="https://atom.io/">Atom</a>, <a href="https://www.jetbrains.com/pycharm/">PyCharm</a>,  <a href="https://code.visualstudio.com/">Visual Studio Code</a>, <a href="https://jupyter.org/">Jupyter Notebook</a>. Other super popular editors that have a steep learning curve are <a href="https://www.gnu.org/software/emacs/">Emacs</a> (I personally use this!) and <a href="https://www.vim.org/">Vim</a> (A lot of my graduate students use this). Now, that you have found your favorite editor, install it by following the instructions on their respective websites for your particular operating system. I would recommend using a dark theme so that programming is easy on your eyes for working long periods.<br><br>
-
-  
-			<h4> Step 1: Let's Learn <span class=cour>Numpy</span></h4><br>
-			Your task it to implement the following using only <span class=cour>Numpy</span> and built-in Python data-structures. <br>
-
-			<ul class="ordered-list">
-            <li> Construct two random \(3 \times 3\) matrices \(A\) and \(B\). Now perform the following operations, (a) \(AB\) (matrix multiplication), (b) \(A \circ B\) (element-wise multiplication), (c) \(A^TBA^{-1}\), (d) Reshape \(A\) and \(B\) to \(9\times 1\) vectors \(A_v\), \(B_v\) and concatenate \(A_v, B_v\) to make a \(9\times 2\) vector called \(C_v\). Now compute the \(l_2\) norm or \(C_v\).  </li>
-            <li> Create a random Image \(I\) of size \(256 \times 256\) whose element values range from \([0, 255]\). Create another random Mask \(M\) of size \(256 \times 256\) whose element values are either 0 or 1. Now replace the values in Image \(I\) at indexes corresponding to ones in mask \(M\). </li>
-            </ul><br><br>
+			<h4> Step 1: Download Data</h4><br>
+			The data is given in the form of a RGB color video just like the last assignment in <span class="cour">.mp4</span> format and can be downloaded from <a href="">here</a> and is shown below for preview. Feel free to convert the video to frames for debugging. Read and visualize the video to understand how the data looks. <br><br>
 
 
-
-			<h4> Step 2: Let's Learn Python</h4><br>
-			<ul class="ordered-list">
-            <li> Why do you need <span class=cour>__name__ == "__main__"</span> in a Python script? </li>
-            <li> Create a function that takes two numpy array square matrices \(A\) and \(B\) of any size and does the following: (a) Raise an exception with the message "Matrices need to be of same size!", (b) If matrices are of same size, return the value \(A^TBA^{-1}\). Test your function with samples from the <span class=cour>main</span> function. </li>
-            <li> Create a function that returns a value of -1 or +1 with equal probability. Test your function from the <span class=cour>main</span> function.</li>
-            <li> How do you convert: (a) a list to a tuple?, (b) a list to a numpy array?, (c) a list to a dictionary? </li>
-            <li> Create a random list of numbers of length 10 where each element varies from 0 to 10. Then use list comprehension to create a new list where any number between \([5,7]\) in the original is set to zero and other numbers remain the same. E.g., input list: \([0,1,1,2,3,4,5,7,9,0]\), output list: \([0,1,1,2,3,4,0,0,9,0]\). </li>
-            <li> Create a random list of numbers of length 10 where each element varies from 0 to 10. Then use list comprehension to create a new list that has "Even" and "Odd" for each number (Assume 0 to be even). E.g.,  input list: \([0,1,1,2,3,4,5,7,9,0]\), output list: \([Even,Odd,Odd,Even,Odd,Even,Odd,Odd,Odd,Even]\).</li>
-            <li> Create a random numpy array \(I\) of size \(256\times 256\) whose element values range from \([0, 255]\). Now create an array \(I_s\) which is of size \((256\times 256 \times 3\) where each of the third channel (python index 2) is a copy of the image \(I\).</li>
-            </ul> <br><br>
+			<iframe src="https://drive.google.com/file/d/1EEcGXz08USqsBEHm7W83I20Dyjo5_qar/preview" width="640" height="480" allow="autoplay"></iframe><br>
+			Video in which barrel has to be detected.<br><br>
 
 
-            <h3> What you need to submit? </h3><br>
-            Yet to come.<br><br>
+			<h4> Step 2: Make your own traffic barrel detector</h4><br>
+			Come up with any method to detect traffic barrels (Hint: think of color segmentation followed by <span class="cour">cv2.findContours</span> among other things) given you have no constraint on computing time or memory requirement. You are also allowed to use something as basic as color segmentation to pattern matching or deep learning. A sample output for somne simple frames are shown in Fig. 1 and for complex frames are shown in Fig. 2. You are free to use any third-party or built-in code for this purpose.<br><br>
 
-           
+
+			<img src="../../img/asn2/1.png" width=50% alt="" class="img-fluid"><br>
+			Fig. 1: Sample output on frames from the video for easy samples.<br><br>
+
+			<img src="../../img/asn2/2.png" width=50% alt="" class="img-fluid"><br>
+			Fig. 2: Sample output on frames from the video for a hard sample.<br><br>
+
+
+			<h3> Using third-party code</h3><br>
+			You are allowed to use any code available on the internet with an appropriate citation. However, you are not allowed to submit any other classmate's work as your own. Remember collabotation amongst classmates is encouraged but plagiarism is strictly prohibited. <br><br>
+
+			 <h3> What you need to submit? </h3><br>
+			 Yet to come. <br><br>
+			
+
             </div>
         </div>
     </div>

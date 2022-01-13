@@ -105,7 +105,7 @@
 							</div>
 							<div class="col-lg-6 col-md-6 mt-sm-20 left-align-p">
 								<h2 class="mb-30">ASN6</h2>
-								<h3><b> First Prototype Report and Presentation!</b></h3>
+								<h3><b> Your First Autonomous Drone!</b></h3>
 							</div>
 							
 						</div>
@@ -113,48 +113,42 @@
 						<hr>
                        
             <h3> Deadline </h3><br>
-            <h4>Presentation due on Nov 1, 2021 during status update time. Report due on Nov 5, 2021 at 11:59:59 PM (Only one submission per group).</h4><br><br>
+            <h4> Mar 28, 2022 at 11:59:59 PM (Group Submissions). </h4><br><br>
 
 	    <h3> What you need to do? </h3><br>
-	    There are two parts in this assignment: presentation and a report.<br><br>
-	    
-	    <h4>Presentation</h4><br>
-	You need to make a professional presentation (any software of your choice but has to be professional, I recommend not to use Prezi) for a 12 min talk given by all the members of the team. The split for what part is presented by which student is upto your team to decide. Keep the slides with minimum text, more media content is highly encouraged with a good set of animations so as to not overload the observer. You can treat the class slides as an idea of text to media ratio. Media can include videos and images. Use softwares like Photoshop or draw.io or Corel Draw to make high quality images. Use a good camera (a good phone camera with protrait mode if needed) to capture compelling photos of your project to be used in slides. This talk is for an expert in the field, keep it technical. You can use the FIRE Summit template provided <a href="https://docs.google.com/presentation/d/1z51Icd-z6ikNqfjBvS3VNzPviSWqxbwm/edit?usp=sharing&ouid=107195593830279898470&rtpof=true&sd=true">here</a> as a starting point (recommended to download this and use it in Powerpoint rather than Google Slides). <b>I will grade you not only presentation quality but also attention to detail and how creatively you present your approach.</b> <br><br>
+	    Imagine you are in a disaster scenario where flight through gaps/windows is ubiquitous. Obviously, the size of the gap you can traverse using a quadrotor depends on the size of the quadrotor. This has attracted various researchers across the world and also has been hosted by major competitions such as <a href="https://www.lockheedmartin.com/en-us/news/events/ai-innovation-challenge.html">Lockheed Martin AlphaPilot</a> with a whopping USD 1 Million prize and <a href="https://www.iros2018.org/competitions">IROS Autonomous Drone Racing</a>. To prepare you for the such competitions and to enable you to build robots of utility for social good, in this assignment you'll design a perception, planning and control algorithm for a drone to navigate/fly through a "known" rectangular window. More details about the window and task are given in the following subsections.<br><br>
 
-	    <h4>Report</h4><br>
-	    You also need to make a high conference/journal quality report on the progress made so far. It should include the following (with appropriate section headings):<br>
-            <ul class="unordered-list">
-	    <li> Informative Title</li>
-            <li> Names of the team members along with affiliations</li>
-            <li> Abstract</li>
-            <li> Introduction</li>
-	    <li> Related work (this has to be up to date with proper reference indexing and formatting following IEEE standards, you can use .bib files to make your life easier). You should also have appropriate descriptions of the papers cited.</li>
-            <li> Problem Definition and Contributions (state your assumptions or simplifications made here along with your contributions)</li>
-	    <li> Methodology (add approporiate section titles)</li>
-	    <li> Experiments (along with evaluation methodology and results: images and/or tables)</li>
-	    <li> Conclusions</li>
-            <li> Distribution of work amongst team-members on the entire project, not just the report/presentation.</li>
-            </ul>
-	    <b>I will grade you on the content and presentation quality of your report, particularly images, math, algorithms and related work.</b>
-            <br><br>
-	   	
 
-            <h3> What you need to submit? </h3><br>
-	    <h4>Presentation</h4><br>
-	    Your presentation file in the format it was made in (for example this would be <span class=cour>.pptx</span> if you used Microsoft Powerpoint) along with a live presentation session during the deadline time indicated above.<br><br>
+	    <!-- TODO: Add cartoon image of window flight/video -->
+
+	    <h4> Window Specifications </h4><br>
+	    The rectangular window measures (length, breadth and height) are shown in the Fig. 1. The windows are made of cardboard and are colored "orange" with semi-glossy printer paper.
+
+	    <!-- TODO: Add height of window in image -->
+
+	    <img src="../../img/fire198/asn6/Windows2.png" width=70% alt="" class="img-fluid"><br>
+		Fig. 1: Window dimensions.<br><br>
+
+		Note that, the same window looks different from different orientations and lighting/illumination conditions as shown in Fig. 2. Notice that the 
+		different shades of "orange" from the same window.
+
+		<img src="../../img/fire198/asn6/Windows.png" width=100% alt="" class="img-fluid"><br>
+		Fig. 1: The same window looks very different under different orientation and lighting/illumination settings.<br><br>
+
+		<h4> Detection of the Window Using Robot Perception/Vision </h4><br>
+		You need to detect the rectangular "orange" window using the monocular RGB camera on the DJI Tello. You are allowed to re-use any code from previous assignments or any third-party code with appropriate citation for this part. Note that, you will also need to filter out "false window detections" using various methods. I would highly recommend looking at <a href="https://prgaero.github.io/2019fall/proj/p3a-results/">this</a> webpage for ideas to perform awesome window detection.<br><br>
+
+		<h4> Fly through the Window Using Visual Seroving (Planning and Control) </h4><br>
+		Now that we have obtained the contours of the window on the image, we can obtain the center of the window on the image (think about how this can be done). Let us denote the center of the window on the image as \(C_w\). Since we want to fly through the window, we want to continuously align the center of the image \(C_i\) (assuming that the center of the drone is aligned to center of the image) to the center of the window. A simple Propostional controller based visual servoing will be given by \(u = K_p(C_i - C_w)\) , where \(u\) is the control command and \(K_p>0\) is a proportional gain. Note that you need to perform this for both image \(X\) (drone going left and right) and \(Y\) (drone going up and down) directions. The forward motion (image \(Z\) direction) can be controlled in creative ways (think about it). <br><br>
 
 	    
-	    <h4>Report</h4><br>
-            A report in double column IEEE format (maximum of 6 pages) in LaTeX per group compiled into <span class=cour>.pdf</span>. <b>I will deduct 25 points if I get multiple submissions from the same group (submitted by more than one person from your group not multiple iterations submitted by the same person).</b>
+	    
 
-            Your report should be of <a href="https://prg.cs.umd.edu/research/gapflyt_files/GapFlyt-RAL2018.pdf">this</a> quality in-terms of content detail (with appropirate math and algorithmic details). Particularly, I expect the report to have mathematical equations (typeset in LaTeX not images obviously) describing your approach. If your approach is more algorithmic, <a href="https://www.overleaf.com/learn/latex/Algorithms">then use algorithm (or some other similar package) package in LaTeX to format algorithms.</a><br><br>
-
-            <b>Your report should include the aforementioned sections as well.</b><br>
-
-            You can use any LaTeX tool you like, I would recommend <a href='https://www.overleaf.com/'>Overleaf</a> as it is free and you can use it to collaborate online. If you are new to LaTeX, you can <a href='https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes'>learn from this awesome tutorial</a> from Overleaf. Alternatively, if you want to work locally, you can use any of <a href='https://beebom.com/best-latex-editors/'>these editors</a>. The LaTeX template can be found <a href='https://www.ieee.org/conferences/publishing/templates.html'>here</a>. <br><br>
+        <h3> What you need to submit? </h3><br>
+	    Yet to come.<br><br>
 	    
 	    <h4>Submission File</h4><br>
-	    Both the presentation file and the report should be zipped together and submitted via ELMS. <br><br>
+	     Yet to come. <br><br>
 	    
             </div>
         </div>

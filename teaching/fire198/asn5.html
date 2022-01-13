@@ -104,8 +104,8 @@
 								<img src="../../img/teaching/fireausicon.webp" alt="" class="img-fluid">
 							</div>
 							<div class="col-lg-6 col-md-6 mt-sm-20 left-align-p">
-								<h2 class="mb-30">ASN2</h2>
-								<h3><b> Let's Become Pythonic!</b></h3>
+								<h2 class="mb-30">ASN5</h2>
+								<h3><b> Drone Path Following!</b></h3>
 							</div>
 							
 						</div>
@@ -113,42 +113,45 @@
 						<hr>
                        
             <h3> Deadline </h3><br>
-            <h4>Feb 08, 2022 at 11:59:59 PM (Individual Submissions).</h4><br><br>
+            <h4>Mar 07, 2022 at 11:59:59 PM (Group Submissions).</h4><br><br>
 
 			<h3> What you need to do? </h3><br>
-			Intelligence in robots is generally performed in-terms of a computer program or code. One of the most common languages to program robots has been Python due to it's ease of use and learnability. In order to facilitate building autonomous robots, we'll first learn the basics of Python through a set of small yet fun tasks. <br><br>
+			Often times you want to follow known trajectories/path on robots to accomplish various tasks such as obstacle avoidance, pursuit or cinematography. In a general aerial robot, you obtain a path from a path planner such as Dijkstra’s algorithm or A* or RRT and so on. These paths have to then be converted into feasible motion trajectories which take into account the dynamics of the system. Finally, once the feasible motion trajectory is obtained, one has to implement a controller to follow the trajectory on the DJI Tello. In this assignment, we'll start off with the basics, given a trajectory, how do we break them down into a set of small line-segments or straight line paths the drone can follow with the <span class="cour">TelloPy</span> package. More details are given in the following steps. <br><br>
 
-			<a id="step0"></a>
-			<h4> Step 0: Find Your Favorite IDE/Editor</h4><br>
-			Before you run your code to do something cool, you need a place to write your programs/code in. This is called an Editor or an Integrated Development Environment (IDE). There are a lot of amazing editors/IDEs around developed by the amazing community of developers. Each of these tools have their own great set of features and visual appeal. To a large extent the choice of the IDE/Editor also comes down to personal preference. Currently, most common choices for Python are <a href="https://www.sublimetext.com/">Sublime Text</a>, <a href="https://atom.io/">Atom</a>, <a href="https://www.jetbrains.com/pycharm/">PyCharm</a>,  <a href="https://code.visualstudio.com/">Visual Studio Code</a>, <a href="https://jupyter.org/">Jupyter Notebook</a>. Other super popular editors that have a steep learning curve are <a href="https://www.gnu.org/software/emacs/">Emacs</a> (I personally use this!) and <a href="https://www.vim.org/">Vim</a> (A lot of my graduate students use this). Now, that you have found your favorite editor, install it by following the instructions on their respective websites for your particular operating system. I would recommend using a dark theme so that programming is easy on your eyes for working long periods.<br><br>
+			<h4> Step 1: Download and Configure <span class="cour">TelloPy</span> API</h4><br>
+			Every robot has a computer (AKA the "brains") that processes the information around using various sensors and makes decissions about what the robot will do next. We'll be using the <a href="https://store.dji.com/product/tello-edu?vid=47091">DJI Tello Edu</a> drone due to it's ease of use and safety. The DJI Tello has a tiny computer on-board the drone that it uses to maintain it's 3D pose (location and orientation) in space. However one needs to use their laptop/PC to give it higher level commands such as "go up", "go left", "turn right" and so on. To enable this, we need to install a software package called <span class="cour">TelloPy</span> from <a href="https://github.com/hanyazou/TelloPy">here</a> (Follow the instructions given on the package link). <br><br>
 
-  
-			<h4> Step 1: Let's Learn <span class=cour>Numpy</span></h4><br>
-			Your task it to implement the following using only <span class=cour>Numpy</span> and built-in Python data-structures. <br>
+			<h4> Step 2: Follow Trajectories</h4><br>
+			As I mentioed before, we want to break down a trajectory/path into a set of straight lines (since our API directly supports straight line trajectories). In the following sub-steps you'll come-up with the mathematical model for achieving a trajectory and implement them on the DJI Tello drone.<br><br>
 
-			<ul class="ordered-list">
-            <li> Construct two random \(3 \times 3\) matrices \(A\) and \(B\). Now perform the following operations, (a) \(AB\) (matrix multiplication), (b) \(A \circ B\) (element-wise multiplication), (c) \(A^TBA^{-1}\), (d) Reshape \(A\) and \(B\) to \(9\times 1\) vectors \(A_v\), \(B_v\) and concatenate \(A_v, B_v\) to make a \(9\times 2\) vector called \(C_v\). Now compute the \(l_2\) norm or \(C_v\).  </li>
-            <li> Create a random Image \(I\) of size \(256 \times 256\) whose element values range from \([0, 255]\). Create another random Mask \(M\) of size \(256 \times 256\) whose element values are either 0 or 1. Now replace the values in Image \(I\) at indexes corresponding to ones in mask \(M\). </li>
-            </ul><br><br>
+			<h5> Step 2a: 2D Straight Line</h4><br>
+			Go forward 1m maintaining your current height. <br><br>
+			<!-- TODO: Show image -->
 
+			<h5> Step 2b: 2D Diagonal Straight Line</h4><br>
+			Go forward and left by 1m (as a diagonal line) maintaining your current height. <br><br>
+			<!-- TODO: Show image -->
 
-
-			<h4> Step 2: Let's Learn Python</h4><br>
-			<ul class="ordered-list">
-            <li> Why do you need <span class=cour>__name__ == "__main__"</span> in a Python script? </li>
-            <li> Create a function that takes two numpy array square matrices \(A\) and \(B\) of any size and does the following: (a) Raise an exception with the message "Matrices need to be of same size!", (b) If matrices are of same size, return the value \(A^TBA^{-1}\). Test your function with samples from the <span class=cour>main</span> function. </li>
-            <li> Create a function that returns a value of -1 or +1 with equal probability. Test your function from the <span class=cour>main</span> function.</li>
-            <li> How do you convert: (a) a list to a tuple?, (b) a list to a numpy array?, (c) a list to a dictionary? </li>
-            <li> Create a random list of numbers of length 10 where each element varies from 0 to 10. Then use list comprehension to create a new list where any number between \([5,7]\) in the original is set to zero and other numbers remain the same. E.g., input list: \([0,1,1,2,3,4,5,7,9,0]\), output list: \([0,1,1,2,3,4,0,0,9,0]\). </li>
-            <li> Create a random list of numbers of length 10 where each element varies from 0 to 10. Then use list comprehension to create a new list that has "Even" and "Odd" for each number (Assume 0 to be even). E.g.,  input list: \([0,1,1,2,3,4,5,7,9,0]\), output list: \([Even,Odd,Odd,Even,Odd,Even,Odd,Odd,Odd,Even]\).</li>
-            <li> Create a random numpy array \(I\) of size \(256\times 256\) whose element values range from \([0, 255]\). Now create an array \(I_s\) which is of size \((256\times 256 \times 3\) where each of the third channel (python index 2) is a copy of the image \(I\).</li>
-            </ul> <br><br>
+			<h5> Step 2c: 2D Circle</h4><br>
+			Follow a circle of radius 1m in clock-wise direction from your stating point maintaining your current height. (Hint: Think about polar coordinates). <br><br>
+			<!-- TODO: Show image -->
 
 
-            <h3> What you need to submit? </h3><br>
-            Yet to come.<br><br>
+			<h5> Step 2d: 3D Diagonal Straight Line</h4><br>
+			Go forward, left and up by 1m (as a diagonal line). <br><br>
+			<!-- TODO: Show image -->
 
-           
+			<h5> Step 2e: 3D Helix</h4><br>
+			Follow a clock-wise helix of radius 1m and height 1m in clock-wise direction from your stating point. (Hint: A helix is a circle with height increasing linearly). <br><br>
+			<!-- TODO: Show image -->
+
+			<h3> Using third-party code</h3><br>
+			You are allowed to use any code available on the internet with an appropriate citation. However, you are not allowed to submit any other classmate's work as your own. Remember collabotation amongst classmates is encouraged but plagiarism is strictly prohibited. <br><br>
+
+			 <h3> What you need to submit? </h3><br>
+			 Yet to come. <br><br>
+			
+
             </div>
         </div>
     </div>
