@@ -119,13 +119,20 @@
 			Since most of the real-world robots has some form of robot perception: interpretting data from a robot's sensors, in this assignment you'll work on data from a color camera. The reason for the choice of this sensor is because of its cost-effectiveness and the ubiquitous nature of the sensors. Moreover, one can achieve a numerous set of tasks with images/video from a color camera. <br><br>
 
 			
-			In this assignment, you'll learn how to interpret color images using Python, Numpy and OpenCV to find/detect a cylindrical "orange" barrels in an <span class="cour">.mp4</span> video, which acts as our makeshift replacement for a disaster survivor. For the purposes of this assignment, there is only one survior/barrel in every frame of the video and is placed vertically on the ground.<br><br>
+			In this assignment, you'll learn how to interpret color images using Python, Numpy and OpenCV to find/detect a cylindrical "orange" barrels in an <span class="cour">.mp4</span> video, which acts as our makeshift replacement for a disaster survivor. For the purposes of this assignment, there is only one survior/barrel in every frame of the video and is placed vertically on the ground. A sample image from the video is shown in Fig. 1 and the video preview is given in Fig. 2.<br><br>
 
-			<img src="../../img/asn2/1.png" width=50% alt="" class="img-fluid"><br>
-			Fig. 1: Sample output on frames from the video for easy samples.<br><br>
+			<img src="../../img/fire198/asn3/1.png" width=30% alt="" class="img-fluid"><br>
+			Fig. 1: Sample image frame from the video.<br><br>
+
+			<iframe src="https://drive.google.com/file/d/1Muf5drfUmaQcNkA4XiIkL3skCAoY3IS-/preview" width="640" height="480" allow="autoplay"></iframe><br>
+			Fig. 2: Video in which barrel has to be detected.<br><br>
+
+
+			<h4> Step 1: Download Data</h4><br>
+			The data is given in the form of a <span class="cour">.zip</span> file that contains an input color video called <span class="cour">Vid.mp4</span>, the masks video called <span class="cour">Masks.mp4</span>, a sample frame called <span class="cour">Frame0064.png</span> and it's corresponding mask called <span class="cour">Label0064.png</span>. The videos are in <span class="cour">.mp4</span> format and the images are in <span class="cour">.png</span> format. The data can be downloaded from <a href="https://drive.google.com/file/d/1PswpIhAiOwnDNszjrhl-pB_nihl_Rl03/view?usp=sharing">here</a>. Feel free to convert the video to frames for debugging. <br><br>
 
 			<h4> Step 1: Let's Learn OpenCV</h4><br>
-			Download a sample image (a frame from the video you'll download in the next step) from <a href="">here</a>. I'll use the following set of questions to guide you in learning a few basic concepts of OpenCV.
+			You will be using the images that you downloaded in the last step (extract the <span class="cour">.zip</span> file) in this step. I'll use the following set of questions to guide you in learning a few basic concepts of OpenCV.
             <ul class="ordered-list">
             <li> Read and display an image you downloaded? </li>
             <li> Read the image you just downloaded as grayscale, let us call this \(I_g\) (Hint: There is a flag in OpenCV's image reading function for this). (a) Create a \(3\times3\) Sobel kernel for obtaining horizontal edges. Let us denote this kernel as \(K_x\). Estimate X-gradient \(G_x\) as \(K_x \circledast I_g\) (Here, \(\circledast\) denotes the convolution operation). Display the magnitude of \(G_x\) denoted as \(\vert G_x \vert\), (b) Repeat the same for vertical edges, (c) Compute and display the total gradient \(G\) given by \(G = \sqrt{G_x^2 + G_y^2} \). You are not allowed to use <span class=cour>cv2.Sobel</span> function for this assignment.</li>
@@ -139,21 +146,22 @@
 			</ul><br><br>
 
 			<h4> Step 3: Your First Color Thresholder Application</h4><br>
-			Our human vision is really good at focusing at a particular color of interest. For e.g., when I ask you to focus on an "orange" colored ball, you can do it with ease, however I never told you specifically what "orange" means. You could still focus on the "orange" color since you have learned in your childhood how the color "orange" looks like. Similarly, we want to teach our robot to foucus/detect a certain colored object. Let us consider that we are working on RGB images. The color "orange" has a set of RGB values, however since this is a range, you'll need to make all the values zero which are "not orange". For e.g., an RGB value of \([255,145,0]\) is the stereotypical orange color but the RGB values of \([209, 122, 9]\) and \([212, 120, 0]\) are also different shades of orange. Now, answer the following fundamental question:
+			Our human vision is really good at focusing at a particular color of interest. For e.g., when I ask you to focus on an "orange" colored ball, you can do it with ease, however I never told you specifically what "orange" means. You could still focus on the "orange" color since you have learned in your childhood how the color "orange" looks like. Similarly, we want to teach our robot to foucus/detect a certain colored object. Let us consider that we are working on RGB images. The color "orange" has a set of RGB values, however since this is a range, you'll need to make all the values zero which are "not orange". For e.g., an RGB value of \([255,145,0]\) is the stereotypical orange color but the RGB values of \([209, 122, 9]\) and \([212, 120, 0]\) are also different shades of orange (see Fig. 3 for an example). Now, answer the following fundamental question:
 			<ul class="ordered-list">
 			<li> What factors make the same object color appear different on the captured image? List as many factors as you can. </li>
 			</ul><br><br>
 
-			Let's say, we have a set of images across varying factors that can affect the way the captured image "looks". A simple example of how the "orange" barrel looks under different conditions is given below.
+			Let's say, we have a set of images across varying factors that can affect the way the captured image "looks". A simple example of how the "orange" barrel looks under different conditions is given below.<br><br>
 
-			<img src="../../img/asn3/diffscenarios.png" width=50% alt="" class="img-fluid"><br>
-			Fig. 2: "Orange" barrel looks different under different conditions.<br><br>
+			<img src="../../img/fire198/asn3/BarrelDiffColorCompressed.png" width=70% alt="" class="img-fluid"><br>
+			Fig. 3: The same "orange" barrel looks different under different conditions.<br><br>
+
 
 			Now implement/answer the following:
 			<ul class="ordered-list">
-			<li> Implement a color thresolder to detect only the "orange" color of the barrel on RGB color space. Note that you should not change your thresolds with change in image/frame. Run this on all the frames of the video and output a video that has the "orange" color and every other color is made black. Sample output is shown in Fig. 3. </li>
+			<li> Implement a color thresolder to detect only the "orange" color of the barrel on RGB color space. Note that you should not change your thresolds with change in image/frame. Run this on all the frames of the video and output a video that has the "orange" color and every other color is made black. Sample output is shown in Fig. 4 and side-by-side input and "ideal" output video are shown in Fig. 5. </li>
 			<li> What are the issues with the simple color thresolder you implemented in the previous step?</li>
-			<li> You can think of a thresolding operation as a weighing function that maps input RGB to output where only "orange" has a weight of 1.0 for all channels (the color is passed as in, i.e., each channel is multiplied by 1.0) and all other colors have a weight of 0.0 for all channels (the color gets multiplied by 0.0, making it black). If \(w(I_i) \in \mathbb{R}^{3\times1}\) is a weight vector that is a function of the input that maps the input \(I_i\) to output \(I_o\) such that \(I_o = w(I_i)\) is valid per-pixel. Now, one can use any fancy function that controls how one can measure non-orangeness from the "best" orange color. One such common function is to use a Gaussian since it is data driven (can find the "best" orange color given a set of examples). The probability of "orangeness" (ranging from 0 to 1 where 0 indicates "not orange at all" and 1 indicates "as orange as it gets") of a RGB pixel location \(\mathbf{x} \in \mathbb{R}^{3\times1}\) is given by \( p(\text{orangeness}\vert \mathbf{x}) \sim \frac{1}{\sqrt{2\pi \vert\Sigma\vert}}e^{\frac{-1}{2}(\mathbf{x}-\mu)^T\Sigma^{-1}(\mathbf{x}-\mu)}\). Here, \(\mu \in \mathbb{R}^{3\times1}\) is the mean/average of all "orange" samples (pixels) from your set of images and \(\Sigma \in \mathbb{R}^{3\times3}\) is the covariance matrix which again is obtained as the covariance of all "orange" samples (pixels) from your set of images. The Gaussian distribution is also denoted as \(\mathcal{N}(\mu, \Sigma)\) and is also called Normal distribution (Fun fact: it is the same distribution that is used to curve your grades). You can use the Masks video given along with the RGB video where at every frame white pixels correspond to the "orange" pixel and black pixels correspond to the "non-orange" pixels. Implement thresholding on the confidence scores you obtained using the Gaussian distribution as described above (if you used the equation above this will be in the range \([0,1]\), but you are free to use any built-in or third-party function for this).
+			<li> You can think of a thresolding operation as a weighing function that maps input RGB to output where only "orange" has a weight of 1.0 for all channels (the color is passed as in, i.e., each channel is multiplied by 1.0) and all other colors have a weight of 0.0 for all channels (the color gets multiplied by 0.0, making it black). If \(w(I_i) \in \mathbb{R}^{3\times1}\) is a weight vector that is a function of the input that maps the input \(I_i\) to output \(I_o\) such that \(I_o = w(I_i)\) is valid per-pixel. Now, one can use any fancy function that controls how one can measure non-orangeness from the "best" orange color. One such common function is to use a Gaussian since it is data driven (can find the "best" orange color given a set of examples). The probability of "orangeness" (ranging from 0 to 1 where 0 indicates "not orange at all" and 1 indicates "as orange as it gets") of a RGB pixel location \(\mathbf{x} \in \mathbb{R}^{3\times1}\) is given by \( p(\text{orangeness}\vert \mathbf{x}) \sim \frac{1}{\sqrt{2\pi \vert\Sigma\vert}}e^{\frac{-1}{2}(\mathbf{x}-\mu)^T\Sigma^{-1}(\mathbf{x}-\mu)}\). Here, \(\mu \in \mathbb{R}^{3\times1}\) is the mean/average of all "orange" samples (pixels) from your set of images and \(\Sigma \in \mathbb{R}^{3\times3}\) is the covariance matrix which again is obtained as the covariance of all "orange" samples (pixels) from your set of images. The Gaussian distribution is also denoted as \(\mathcal{N}(\mu, \Sigma)\) and is also called Normal distribution (Fun fact: it is the same distribution that is used to curve your grades). You can use the Masks video given along with the RGB video where at every frame white pixels correspond to the "orange" pixel and black pixels correspond to the "non-orange" pixels. Implement thresholding on the confidence scores you obtained using the Gaussian distribution as described above (if you used the equation above this will be in the range \([0,1]\) and you need to convert it to range \([0,255]\) and Int datatype to make it displayable, but you are free to use any built-in or third-party function for this).
 				<ul class="ordered-list">
 				<li> It this method any better than the first method?</li>
 				<li> What are the issues in the second method? How can you fix them?</li>
@@ -170,12 +178,25 @@
 			-->
 
 
-			<img src="../../img/asn3/sampleoutput.png" width=50% alt="" class="img-fluid"><br>
-			Fig. 3: Left: Sample input, Right: Sample output.<br><br>
+			<img src="../../img/fire198/asn3/BarrelMasks.png" width=70% alt="" class="img-fluid"><br>
+			Fig. 4: Left: Sample input, Right: Sample output.<br><br>
 
-			 <h3> What you need to submit? </h3><br>
-            Yet to come.<br><br>
-			
+
+			<iframe src="https://drive.google.com/file/d/1-RhlYqAzLNDP9SXk0-R78F53d9RK_pZ7/preview" height="480" width="720" allow="autoplay"></iframe><br>
+			Fig. 5: Input and "ideal" output video.<br><br>
+
+			<h3> What you need to submit? </h3><br>
+            A document (feel free to use Word or Google Docs or any other software for this) converted to PDF with the following answers:
+            <ul class="unordered-list">
+            	<li> Code (as <span class="cour">.py</span> python files and inside the document as a screenshot or copy pasted text) and sample input and outputs (can be in the form of screenshots) for questions in Step 1. Answer all the questions in order, some questions might not have code or outputs. </li>	
+            	<li> Code (as <span class="cour">.py</span> python files and inside the document as a screenshot or copy pasted text) and sample input and outputs (can be in the form of screenshots) for questions in Step 2. Answer all the questions in order, some questions might not have code or outputs.</li>
+            	<li> Code (as <span class="cour">.py</span> python files and inside the document as a screenshot or copy pasted text) and sample input and outputs (can be in the form of screenshots) for questions in Step 3. Answer all the questions in order, some questions might not have code or outputs.</li>
+            	<li> Separate output videos in <span class="cour">.mp4</span> format for color thresholder using simple thresholding and Gaussian named as <span class="cour">SimpleColorThresholder.mp4</span> and <span class="cour">GaussianColorThresholder.mp4</span> respectively. Here, you can either show the detected mask (white and black, where the image is white on the "orange" pixels and black on the "non-orange" pixels) or the masked image such that only "orange" pixels show their actual color and "non-orange" pixels are black.</li>
+            	<li> Challenges you faced in solving this assignment along with lessons learned.</li>	
+            	<li> Positive or Negative feedback about this assignment if you have any.</li>
+            </ul><br><br>
+            <b> IMPORTANT NOTE: </b>
+			The submissions are made through ELMS with the name <span class=cour>ASN3_DirID.pdf</span>. Here, <span class=cour>DirID</span> is your directory ID, i.e., the first part of your terpmail email address. For e.g., if your terpmail email address is <span class=cour>ABCD@terpmail.umd.edu</span>, then your <span class=cour>DirID</span> is <span class=cour>ABCD</span>.  Keep your submissions professional, grammatically correct without spelling mistakes. Do not use slangs and chat shorthands on your submissions. <b>You'll get 25% grade penalty for not following the submission guidelines.</b>  <br><br>
 
             </div>
         </div>
