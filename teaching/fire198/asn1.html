@@ -123,7 +123,8 @@
             Follow the instructions for setting up your computer based on the Operating System you have.  <br><br>
 
              <h5> Windows </h5><br>
-             Install <a href="https://docs.microsoft.com/en-us/windows/wsl/install">Windows Subsystem for Linux</a> (WSL1 or WSL2) and then install Ubuntu 18.04 or 20.04. Now, install XMing so that you can forward your display. Inside the Ubuntu environment, install the following packages <span class=cour>Python >=3.8, python-opencv, av</span> and the following Python-pip packages <span class=cour>numpy, scipy</span>.<br><br>
+             Install <a href="https://docs.microsoft.com/en-us/windows/wsl/install">Windows Subsystem for Linux</a> (WSL1 or WSL2) and then install Ubuntu 18.04 or 20.04. Now, install XMing so that you can forward your display. Alternatively (use only one of the two methods), you can also utilize a Virtual Machine (VM) to run Ubuntu. If you want to use the Virtual Machine method, I recommend using <a href="https://www.virtualbox.org/">VirtualBox</a>. The WSL method is better for performance but the VM method is easier to install. 
+             Inside the Ubuntu environment (WSL or VM), install the following packages <span class=cour>Python >=3.8, python-opencv, av</span> and the following Python-pip packages <span class=cour>numpy, scipy</span>.<br><br>
 
 
              <h5> Linux (My Preferred OS!) </h5><br>
@@ -133,15 +134,15 @@
              Install XCode and then the following packages <span class=cour>Python >=3.8</span>. Now, install the following Python-pip packages <span class=cour>av, opencv-python, numpy, scipy</span>.<br><br>. 
 
              <h5> MacOS (M1 or M1 Pro or M1 Max) </h5><br>
-             Install the UTM Virtual Machine with Ubuntu 20.04 from <a href="https://chrisp.cafe/UTM/">here</a>. Now follow the instrctions on Linux inside your Virtual Machine. Alternatively (if you did the previous UTM method, do not do any of the further steps), you can install everything in an Anaconda environment as given <a href="https://blog.roboflow.com/m1-opencv/">here</a> or <a href="https://sayak.dev/install-opencv-m1/">here</a>. If you are super ambitious (<b>not recommended method</b>), you can natively install XCode and then the following packages <span class=cour>Python >=3.8</span>. Now, install the following Python-pip packages <span class=cour>av, numpy, scipy</span>. To install OpenCV package, you can follow the instructions from <a href="https://opencv.org/opencv-python-for-apples-m1-chip-a-detective-story-with-a-happy-ending/">here</a>.<br><br>
+             Install the UTM Virtual Machine (VM) with Ubuntu 20.04 from <a href="https://chrisp.cafe/UTM/">here</a> (recommended) or <a href="https://kb.parallels.com/128445">Parallels</a> . Now follow the instrctions on Linux inside your Virtual Machine.<br><br>
 
 
 
-             <b>Alternatively (for Windows and Mac), you can also utilize a Virtual Machine to run Ubuntu. For Windows and Intel/AMD Mac, I recommend using <a href="https://www.virtualbox.org/">VirtualBox</a> and for M1 Mac I recommend using <a href="https://mac.getutm.app/">UTM</a> (Amazing blog post on this can be found <a href="https://www.howtogeek.com/767684/how-to-install-linux-on-apple-silicon/">here</a>) or <a href="https://kb.parallels.com/128445">Parallels</a>.</b><br><br>
+        <!--      <b>Alternatively (for Windows and Mac), you can also utilize a Virtual Machine to run Ubuntu. For Windows and Intel/AMD Mac, I recommend using <a href="https://www.virtualbox.org/">VirtualBox</a> and for M1 Mac I recommend using <a href="https://mac.getutm.app/">UTM</a> (Amazing blog post on this can be found <a href="https://www.howtogeek.com/767684/how-to-install-linux-on-apple-silicon/">here</a>) or <a href="https://kb.parallels.com/128445">Parallels</a>.</b><br><br> -->
              
 
              <h4> Step 2: Learn Basic Terminal/Bash functions</h4><br>
-             Find answers to the following questions using the Terminal/Bash (for WSL's terminal (Ubuntu) if using Windows, native terminal if using Linux/MacOS), you'll need to make a document to fill in the answers. More details about the submission is given in the next section.<br>
+             Find answers to the following questions using the Terminal/Bash (for WSL's terminal (Ubuntu) if using Windows, native terminal if using Linux/MacOS or VM's terminal), you'll need to make a document to fill in the answers. More details about the submission is given in the next section.<br>
 
              <ul class="ordered-list">
              <li> How do you run a command with superuser access?</li>
@@ -160,7 +161,7 @@
             <h3> What you need to submit? </h3><br>
             A document (feel free to use Word or Google Docs or any other software for this) converted to PDF with the following answers:
             <ul class="unordered-list">
-            <li> One or multiple screenshots with the outputs of the following commands in <span class=cour> Python </span> environment after importing <span class=cour>cv2, numpy, scipy, av</span>.  
+            <li> One or multiple screenshots with the outputs (a screenshot is not a photo from your phone) of the following commands in <span class=cour> Python </span> environment after importing <span class=cour>cv2, numpy, scipy, av</span>.  
             <ul class="unordered-list">
             	<li><span class=cour> cv2.__version__</li>
             	<li><span class=cour> numpy.__version__</li>	

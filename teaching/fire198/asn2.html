@@ -127,8 +127,8 @@
 			Your task it to implement the following using only <span class=cour>Numpy</span> and built-in Python data-structures. <br>
 
 			<ul class="ordered-list">
-            <li> Construct two random \(3 \times 3\) matrices \(A\) and \(B\). Now perform the following operations, (a) \(AB\) (matrix multiplication), (b) \(A \circ B\) (element-wise multiplication), (c) \(A^TBA^{-1}\), (d) Reshape \(A\) and \(B\) to \(9\times 1\) vectors \(A_v\), \(B_v\) and concatenate \(A_v, B_v\) to make a \(9\times 2\) vector called \(C_v\). Now compute the \(l_2\) norm or \(C_v\).  </li>
-            <li> Create a random Image \(I\) of size \(256 \times 256\) whose element values range from \([0, 255]\). Create another random Mask \(M\) of size \(256 \times 256\) whose element values are either 0 or 1. Now replace the values in Image \(I\) at indexes corresponding to ones in mask \(M\). </li>
+            <li> Construct two random \(3 \times 3\) matrices \(A\) and \(B\). Now perform the following operations, (a) \(AB\) (matrix multiplication), (b) \(A \circ B\) (element-wise multiplication), (c) \(A^TBA^{-1}\), (d) Reshape \(A\) and \(B\) to \(9\times 1\) vectors \(A_v, B_v\) and concatenate \(A_v, B_v\) to make a \(9\times 2\) vector called \(C_v\). Now compute the \(l_2\) norm of \(C_v\) which will be of size \(9\times 1\).  </li>
+            <li> Create a random Image \(I\) of size \(256 \times 256\) whose element values range from \([0, 255]\). Create another random Mask \(M\) of size \(256 \times 256\) whose element values are either 0 or 1. Now replace the values in Image \(I\) at indexes corresponding to ones in mask \(M\) to 0. </li>
             </ul><br><br>
 
 
@@ -136,7 +136,7 @@
 			<h4> Step 2: Let's Learn Python</h4><br>
 			<ul class="ordered-list">
             <li> Why do you need <span class=cour>__name__ == "__main__"</span> in a Python script? </li>
-            <li> Create a function that takes two numpy array square matrices \(A\) and \(B\) of any size and does the following: (a) Raise an exception with the message "Matrices need to be of same size!", (b) If matrices are of same size, return the value \(A^TBA^{-1}\). Test your function with samples from the <span class=cour>main</span> function. </li>
+            <li> Create a function that takes two numpy array square matrices \(A\) and \(B\) of any size and does the following: (a) Raise an exception with the message "Matrices need to be of same size!", (b) If matrices are of same size, return the value \(A^TBA^{-1}\). Test your function with random sample matrices \(A\) and \(B\) from the <span class=cour>main</span> function. </li>
             <li> Create a function that returns a value of -1 or +1 with equal probability. Test your function from the <span class=cour>main</span> function.</li>
             <li> How do you convert: (a) a list to a tuple?, (b) a list to a numpy array?, (c) a list to a dictionary? </li>
             <li> Create a random list of numbers of length 10 where each element varies from 0 to 10. Then use list comprehension to create a new list where any number between \([5,7]\) in the original is set to zero and other numbers remain the same. E.g., input list: \([0,1,1,2,3,4,5,7,9,0]\), output list: \([0,1,1,2,3,4,0,0,9,0]\). </li>
@@ -148,7 +148,7 @@
             <h3> What you need to submit? </h3><br>
             A <span class="cour">.zip</span> file that has a document (feel free to use Word or Google Docs or any other software for this) converted to PDF with the following answers and required codes as mentioned below:
             <ul class="unordered-list">
-            	<li> What IDE/Editor did you choose in step 0 and why? Attach a screenshot of your editor in the document.</li>
+            	<li> What IDE/Editor did you choose in step 0 and why? Attach a screenshot (a screenshot is not a photo from your phone) of your editor in the document.</li>
             	<li> Code (as <span class="cour">.py</span> python files and inside the document as a screenshot or copy pasted text) and sample input and outputs (can be in the form of screenshots) for questions in Step 1. </li>	
             	<li> Code (as <span class="cour">.py</span> python files and inside the document as a screenshot or copy pasted text) and sample input and outputs (can be in the form of screenshots) for questions in Step 2. </li>
             	<li> Challenges you faced in solving this assignment along with lessons learned.</li>	
