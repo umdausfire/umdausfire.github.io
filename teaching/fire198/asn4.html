@@ -113,7 +113,7 @@
 						<hr>
                        
             <h3> Deadline </h3><br>
-            <h4>Mar 14, 2022 at 11:59:59 PM (Individual Submissions).</h4><br><br>
+            <h4>Mar 21, 2022 at 11:59:59 PM (Individual Submissions).</h4><br><br>
 
 			<h3> What you need to do? </h3><br>
 			In your last assignment, you detected an orange barrel. Congratulations! However, most real robots need to detect something more sophisticated. Let us go with the example of a self-driving car. Such a car needs to detect traffic barrels to avoid road closures. Particularly, the traffic barrel is an orange colored cylinder (same color as the one from previous assignments) but has two horizontal white stripes around on body (as shown in Fig. 1). To make the problem more realistic, there are also orange barrels in the video from the previous assignment. Your task is to only detect the traffic barrel. Note that, in the real-world, there can be more than one traffic barrel or orange barrel in the same image/video frame. <br><br>
@@ -122,15 +122,24 @@
 			The data is given in the form of a <span class="cour">.zip</span> file that contains an input color video called <span class="cour">Vid.mp4</span> along with the masks video called <span class="cour">Masks.mp4</span> where the barrel exists just like the last assignment. The videos are in <span class="cour">.mp4</span> format. The data can be downloaded from <a href="https://drive.google.com/file/d/1Agr-09CwukD9si6RNf5vi7RqutTFilBt/view?usp=sharing">here</a>. Feel free to convert the video to frames for debugging. Read and visualize the video to understand how the data looks. <br><br>
 
 
-			<h4> Step 2: Make your own traffic barrel detector</h4><br>
-			Come up with any method to detect traffic barrels (Hint: think of color segmentation followed by <span class="cour">cv2.findContours</span> among other things) given you have no constraint on computing time or memory requirement. You are also allowed to use something as basic as color segmentation to as advanced as pattern matching or deep learning. A sample output for a single frames are shown in Fig. 1 and for side-by-side input and output video is shown in Fig. 2. You are free to use any third-party or built-in code for this purpose.<br><br>
+			<h4> Step 2: Make your own traffic barrel detector using Template Matching</h4><br>
+			To detect a traffic barrel we need to match patterns, for example, "a vertical rectangular orange blob with three horizontal white stripes". This can get really complicated very quickly as the patterns can be quite complex. Luckily, experts in computer vision remarked that we can use a concept called template matching. Here, we create a template or an image of what we want to detect. We then use this template and slide over the input image (as in 2D convolution) to compare the template and patch of input image under the template image to "see" if the object we desire is present. Follow the following steps to complete this assignment:
+			 <ul class="ordered-list">
+			 	<li> Prepare a template as a grayscale image, you can be creative on how you obtain this. Simple example is to crop the barrel manually or use a mask given and save the image. Remember, you need <b>ONLY</b> one template image in grayscale.</li>
+            	<li> You work with grayscale images in this assignment as OpenCV's template matching function works only on grayscale images. Read the video (you need to perform this barrel detection on each frame of the video by looping over, just like in ASN3), convert the current video frame to grayscale. </li>	
+            	<li> Follow OpenCV's <a href="https://docs.opencv.org/3.4/d4/dc6/tutorial_py_template_matching.html">Template Matching tutorial</a> to use the template matching funcions to build your own barrel detector. </li>
+            	<li> Experiment with different template matching methods, talk about what works the best and why? in your document.</li>	
+            	<li> Think and write about how one can use color in a template matching method.</li>
+            </ul>
+			
+			 A sample output for a single frame with bounding box oyerlaid is shown in Fig. 1 and bounding box overlaid on video is shown in Fig. 2. You are free to use any third-party or built-in code for this assignment with the appropriate citation.<br><br>
 
 
 			<img src="../../img/fire198/asn4/BarrelMasks.png" width=70% alt="" class="img-fluid"><br>
-			Fig. 1: Left: Sample input frame from the video, Right: "Ideal" output mask where white pixels denote the pixels that correspond to the traffic barrel and black pixels correspond to to "not traffic barrel".<br><br>
+			Fig. 1: Sample input RGB frame from the video with bounding box overlaid.<br><br>
 
 			<iframe src="https://drive.google.com/file/d/1aT26h46YQxrgs6jV6upoX-PvqCWwTu_j/preview" height="480" width="720" allow="autoplay"></iframe><br>
-			Fig. 2: Side-by-side video that shows input and "ideal" output.<br><br>
+			Fig. 2: Expected "Ideal" RGB video that shows input with bounding box overlaid.<br><br>
 
 
 			<h3> Using third-party code</h3><br>
@@ -139,10 +148,12 @@
 			 <h3> What you need to submit? </h3><br>
 			A <span class="cour">.zip</span> file that has a document (feel free to use Word or Google Docs or any other software for this) converted to PDF with the following answers and required codes as mentioned below:
             <ul class="unordered-list">
-            	<li> Code (as <span class="cour">.py</span> python files and inside the document as a screenshot or copy pasted text) and a detailed description of the approach you took to detect the traffic barrel. </li>	
+            	<li> Code (as <span class="cour">.py</span> python files and inside the document as a screenshot or copy pasted text). </li>	
+            	<li> Comments on your experiment with different template matching methods, talk about what works the best and why?</li>
+            	<li> Think and write about how one can use color in a template matching method.</li>
             	<li> Challenges you faced in solving this assignment along with lessons learned.</li>	
             	<li> Positive or Negative feedback about this assignment if you have any.</li>
-            	<li> Output video of the mask as shown in Fig. 2 (right half) in <span class="cour">.mp4</span> format named as <span class="cour">Output.mp4</span>. Here, you can either show the detected mask (white and black, where the image is white on the "traffic barrel" pixels and black on the "not traffic barrel" pixels) or the masked image such that only "traffic barrel" pixels show their actual color and "not traffic barrel" pixels are black.</li>
+            	<li> Output RGB Video with bounding box overlaid for detection as shown in Fig. 2 in <span class="cour">.mp4</span> format named as <span class="cour">Output.mp4</span>. </li>
             </ul><br><br>
             <b> IMPORTANT NOTE: </b>
 			The submissions are made through ELMS with the name <span class=cour>ASN4_DirID.pdf</span>. Here, <span class=cour>DirID</span> is your directory ID, i.e., the first part of your terpmail email address. For e.g., if your terpmail email address is <span class=cour>ABCD@terpmail.umd.edu</span>, then your <span class=cour>DirID</span> is <span class=cour>ABCD</span>.  Keep your submissions professional, grammatically correct without spelling mistakes. Do not use slangs and chat shorthands on your submissions. <b>You'll get 25% grade penalty for not following the submission guidelines.</b>  <br><br>
