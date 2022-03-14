@@ -128,8 +128,9 @@
 			 	<li> Prepare a template as a grayscale image, you can be creative on how you obtain this. Simple example is to crop the barrel manually or use a mask given and save the image. Remember, you need <b>ONLY</b> one template image in grayscale.</li>
             	<li> You work with grayscale images in this assignment as OpenCV's template matching function works only on grayscale images. Read the video (you need to perform this barrel detection on each frame of the video by looping over, just like in ASN3), convert the current video frame to grayscale. </li>	
             	<li> Follow OpenCV's <a href="https://docs.opencv.org/3.4/d4/dc6/tutorial_py_template_matching.html">Template Matching tutorial</a> to use the template matching funcions to build your own barrel detector. </li>
-            	<li> Experiment with different template matching methods, talk about what works the best and why? in your document.</li>	
-            	<li> Think and write about how one can use color in a template matching method.</li>
+            	<li> Overlay the bounding box of any color on the input video to visualize your detection results. You will need to save this video and submit it. </li>
+            	<li> Experiment with different template matching methods, talk about what works the best and why? in your document (You need to write code to experiment here.)</li>	
+            	<li> Think and write about how one can use color in a template matching method (You do not need to any write code for this part.)</li>
             </ul>
 			
 			 A sample output for a single frame with bounding box oyerlaid is shown in Fig. 1 and bounding box overlaid on video is shown in Fig. 2. You are free to use any third-party or built-in code for this assignment with the appropriate citation.<br><br>
@@ -138,8 +139,10 @@
 			<img src="../../img/fire198/asn4/BarrelMasks.png" width=70% alt="" class="img-fluid"><br>
 			Fig. 1: Sample input RGB frame from the video with bounding box overlaid.<br><br>
 
-			<iframe src="https://drive.google.com/file/d/1aT26h46YQxrgs6jV6upoX-PvqCWwTu_j/preview" height="480" width="720" allow="autoplay"></iframe><br>
-			Fig. 2: Expected "Ideal" RGB video that shows input with bounding box overlaid.<br><br>
+			<!-- <iframe src="https://drive.google.com/file/d/1aT26h46YQxrgs6jV6upoX-PvqCWwTu_j/preview" height="480" width="720" allow="autoplay"></iframe><br> -->
+			<iframe src="https://drive.google.com/file/d/16E8KJH6TbdnTIGu4KjMjBalHHoRLe-gt/preview" width="640" height="480" allow="autoplay"></iframe><br>
+			Fig. 2: "Reasonable" RGB video that shows input with bounding box overlaid.<br><br>
+			
 
 
 			<h3> Using third-party code</h3><br>
@@ -149,11 +152,11 @@
 			A <span class="cour">.zip</span> file that has a document (feel free to use Word or Google Docs or any other software for this) converted to PDF with the following answers and required codes as mentioned below:
             <ul class="unordered-list">
             	<li> Code (as <span class="cour">.py</span> python files and inside the document as a screenshot or copy pasted text). </li>	
-            	<li> Comments on your experiment with different template matching methods, talk about what works the best and why?</li>
-            	<li> Think and write about how one can use color in a template matching method.</li>
+            	<li> Comments on your experiment with different template matching methods, talk about what works the best and why? (You need to write code to experiment here.)</li>
+            	<li> Think and write about how one can use color in a template matching method (You do not need to any write code for this part.)</li>
+     			<li> Output RGB Video with bounding box overlaid for detection as shown in Fig. 2 in <span class="cour">.mp4</span> format named as <span class="cour">Output.mp4</span>. </li>
             	<li> Challenges you faced in solving this assignment along with lessons learned.</li>	
             	<li> Positive or Negative feedback about this assignment if you have any.</li>
-            	<li> Output RGB Video with bounding box overlaid for detection as shown in Fig. 2 in <span class="cour">.mp4</span> format named as <span class="cour">Output.mp4</span>. </li>
             </ul><br><br>
             <b> IMPORTANT NOTE: </b>
 			The submissions are made through ELMS with the name <span class=cour>ASN4_DirID.pdf</span>. Here, <span class=cour>DirID</span> is your directory ID, i.e., the first part of your terpmail email address. For e.g., if your terpmail email address is <span class=cour>ABCD@terpmail.umd.edu</span>, then your <span class=cour>DirID</span> is <span class=cour>ABCD</span>.  Keep your submissions professional, grammatically correct without spelling mistakes. Do not use slangs and chat shorthands on your submissions. <b>You'll get 25% grade penalty for not following the submission guidelines.</b>  <br><br>
