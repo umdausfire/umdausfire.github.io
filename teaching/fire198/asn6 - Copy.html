@@ -113,58 +113,50 @@
 						<hr>
                        
             <h3> Deadline </h3><br>
-            <h4>May 03, 2022 at 11:59:59 PM (Group Submissions).</h4><br><br>
+            <h4>Apr 25, 2022 at 11:59:59 PM (Group Submissions). </h4><br><br>
 
-			<h3> What you need to do? </h3><br>
-			Building off of ASN5, we'll follow a few more complex trajectories this time. <br><br>
-
-			<h4> Step 1: Follow Fancy Trajectories</h4><br>
-			Follow the trajectories given below using the concepts from ASN5.<br><br>
-
-			<h5> Step 2a: 2D Hexagon</h4><br>
-			Complete a hexagon of any size while maintaining your current height (See figure below). <br><br>
-			<img src="../../img/fire198/asn6/Hexagon.png" width=30% alt="" class="img-fluid"><br>
-			Fig. 1: 2D Hexagon trajectory.<br><br>
-
-			<h5> Step 2b: 2D Star</h4><br>
-			Complete a five pointed star of any size while maintaining your current height (See figure below). <br><br>
-			<img src="../../img/fire198/asn6/Star.png" width=30% alt="" class="img-fluid"><br>
-			Fig. 2: 2D Star trajectory.<br><br>
-
-			<h5> Step 2c: 3D Staircase</h4><br>
-			Complete a two step staircase of any step height and any distance of your choice (See figure below). <br><br>
-			<img src="../../img/fire198/asn6/Staircase.png" width=30% alt="" class="img-fluid"><br>
-			Fig. 3: 3D Staircase trajectory.<br><br>
-
-			<!-- <h5> Step 2c: 2D Circle</h4><br>
-			Follow a circle of radius 1m in the anti-clockwise direction from your stating point maintaining your current height. (Hint: Think about polar coordinates). You can face in any direction during the trajectory execution (See figure below). <br><br>
-			<img src="../../img/fire198/asn5/Circle2D.png" width=50% alt="" class="img-fluid"><br>
-			Fig. 2: 2D Circle trajectory.<br><br>
+	    <h3> What you need to do? </h3><br>
+	    Imagine you are in a disaster scenario where flight through gaps/windows is ubiquitous. Obviously, the size of the gap you can traverse using a quadrotor depends on the size of the quadrotor. This has attracted various researchers across the world and also has been hosted by major competitions such as <a href="https://www.lockheedmartin.com/en-us/news/events/ai-innovation-challenge.html">Lockheed Martin AlphaPilot</a> with a whopping USD 1 Million prize and <a href="https://www.iros2018.org/competitions">IROS Autonomous Drone Racing</a>. To prepare you for the such competitions and to enable you to build robots of utility for social good, in this assignment you'll design a perception, planning and control algorithm for a drone to navigate/fly through a "known" rectangular window (See Fig. 1). More details about the window and task are given in the following subsections.<br><br>
 
 
-			<h5> Step 2d: 3D Diagonal Straight Line</h4><br>
-			Go forward, left and up by 1m (as a diagonal line, See figure below). <br><br>
-			<img src="../../img/fire198/asn5/DiagonalStraightLine3D.png" width=50% alt="" class="img-fluid"><br>
-			Fig. 2: 3D Diagonal Straight Line trajectory.<br><br>
+	    <img src="../../img/fire198/asn6/GapFlyt.png" width=50% alt="" class="img-fluid"><br>
+		Fig. 1: Your drone flying through a "known" rectangular window.<br><br>
+	    
+	    <h4> Window Specifications </h4><br>
+	    The rectangular window measures (length, breadth and height) are shown in the Fig. 1. The windows are made of cardboard and are colored "orange" with semi-glossy printer paper.
 
-			<h5> Step 2e: 3D Helix</h4><br>
-			Follow an anti-clockwise helix of at-least 1 turn of radius 1m and height 1m in clock-wise direction from your stating point. (Hint: A helix is a circle with height increasing linearly). See figure below. <br><br>
-			<img src="../../img/fire198/asn5/Helix3D.png" width=30% alt="" class="img-fluid"><br>
-			Fig. 2: 3D Helix trajectory.<br><br> -->
+	    <!-- TODO: Add height of window in image -->
 
-			<h3> Using third-party code</h3><br>
-			You are allowed to use any code available on the internet with an appropriate citation. However, you are not allowed to submit any other classmate's work as your own. Remember collabotation amongst classmates is encouraged but plagiarism is strictly prohibited. <br><br>
+	    <img src="../../img/fire198/asn6/Windows2.png" width=70% alt="" class="img-fluid"><br>
+		Fig. 1: Window dimensions.<br><br>
 
-			 <h3> What you need to submit? </h3><br>
-			 A <span class="cour">.zip</span> file that contains the files as mentioned below:
+		Note that, the same window looks different from different orientations and lighting/illumination conditions as shown in Fig. 2. Notice that the 
+		different shades of "orange" from the same window.
+
+		<img src="../../img/fire198/asn6/Windows.png" width=100% alt="" class="img-fluid"><br>
+		Fig. 1: The same window looks very different under different orientation and lighting/illumination settings.<br><br>
+
+		<h4> Detection of the Window Using Robot Perception/Vision </h4><br>
+		You need to detect the rectangular "orange" window using the monocular RGB camera on the DJI Tello. You are allowed to re-use any code from previous assignments or any third-party code with appropriate citation for this part. Note that, you will also need to filter out "false window detections" using various methods. I would highly recommend looking at <a href="https://prgaero.github.io/2019fall/proj/p3a-results/">this</a> webpage for ideas to perform awesome window detection.<br><br>
+
+		<h4> Fly through the Window Using Visual Seroving (Planning and Control) </h4><br>
+		Now that we have obtained the contours of the window on the image, we can obtain the center of the window on the image (think about how this can be done). Let us denote the center of the window on the image as \(C_w\). Since we want to fly through the window, we want to continuously align the center of the image \(C_i\) (assuming that the center of the drone is aligned to center of the image) to the center of the window. A simple Propostional controller based visual servoing will be given by \(u = K_p(C_i - C_w)\) , where \(u\) is the control command and \(K_p>0\) is a proportional gain. Note that you need to perform this for both image \(X\) (drone going left and right) and \(Y\) (drone going up and down) directions. The forward motion (image \(Z\) direction) can be controlled in creative ways (think about it). <br><br>
+
+	    
+	    
+
+        <h3> What you need to submit? </h3><br>
+	    A <span class="cour">.zip</span> file that has a document (feel free to use Word or Google Docs or any other software for this) converted to PDF with the following answers, required codes and other files as mentioned below:
             <ul class="unordered-list">
-            	<li> Code (as <span class="cour">.py</span> python files.</li>
-            	<li> Videos of DJI Tello following each of the trajectories. You'll have 3 videos. Please use the best smartphone in your team to record the videos. Make sure to keep your hand study. Make sure to record the video from outside the net (you can place the camera lens in-between the net gaps for a clear video).</li>
+            	<li> Code (as <span class="cour">.py</span> python files and inside the document as a screenshot or copy pasted text). </li>
+            	<li> Challenges you faced in solving this assignment along with lessons learned.</li>	
+            	<li> Positive or Negative feedback about this assignment if you have any.</li>
+            	<li> Videos of DJI Tello flying through the window. Please use the best smartphone in your team to record the videos. Make sure to keep your hand study. Make sure to record the video from outside the net (you can place the camera lens in-between the net gaps for a clear video).</li>
+            	<li> A live demonstration to your PRM, the PRM will place the drone at a random location with respect to the window and you have to fly through the window in an autonomous manner. Ask the PRM to record a video each of the trajectories (this is separate from the videos you will record yourself).</li>
             </ul><br><br>
             <b> IMPORTANT NOTE: </b>
-			The submissions are made through ELMS with the name <span class=cour>ASN6_DirID.pdf</span>. Here, <span class=cour>DirID</span> is your directory ID, i.e., the first part of your terpmail email address. For e.g., if your terpmail email address is <span class=cour>ABCD@terpmail.umd.edu</span>, then your <span class=cour>DirID</span> is <span class=cour>ABCD</span>.  Keep your submissions professional, grammatically correct without spelling mistakes. Do not use slangs and chat shorthands on your submissions. <b>You'll get 25% grade penalty for not following the submission guidelines.</b>  <br><br>
-			
-
+			The submissions are made through ELMS with the name <span class=cour>ASN5_DirID.pdf</span>. Here, <span class=cour>DirID</span> is your directory ID, i.e., the first part of your terpmail email address. For e.g., if your terpmail email address is <span class=cour>ABCD@terpmail.umd.edu</span>, then your <span class=cour>DirID</span> is <span class=cour>ABCD</span>.  Keep your submissions professional, grammatically correct without spelling mistakes. Do not use slangs and chat shorthands on your submissions. <b>You'll get 25% grade penalty for not following the submission guidelines.</b>  <br><br>
+	    
             </div>
         </div>
     </div>

@@ -113,31 +113,45 @@
 						<hr>
                        
             <h3> Deadline </h3><br>
-            <h4>Apr 04, 2022 at 11:59:59 PM (Group Submissions).</h4><br><br>
+            <h4>Apr 18, 2022 at 11:59:59 PM (Group Submissions).</h4><br><br>
 
 			<h3> What you need to do? </h3><br>
-			Often times you want to follow known trajectories/path on robots to accomplish various tasks such as obstacle avoidance, pursuit or cinematography. In a general aerial robot, you obtain a path from a path planner such as Dijkstra’s algorithm or A* or RRT and so on. These paths have to then be converted into feasible motion trajectories which take into account the dynamics of the system. Finally, once the feasible motion trajectory is obtained, one has to implement a controller to follow the trajectory on the DJI Tello. In this assignment, we'll start off with the basics, given a trajectory, how do we break them down into a set of small line-segments or straight line paths the drone can follow with the <span class="cour">TelloPy</span> package. More details are given in the following steps. <br><br>
+			Often times you want to follow known trajectories/path on robots to accomplish various tasks such as obstacle avoidance, pursuit or cinematography. In a general aerial robot, you obtain a path from a path planner such as Dijkstra’s algorithm or A* or RRT and so on. These paths have to then be converted into feasible motion trajectories which take into account the dynamics of the system. Finally, once the feasible motion trajectory is obtained, one has to implement a controller to follow the trajectory on the DJI Tello. In this assignment, we'll start off with the basics, given a trajectory, how do we break them down into a set of small line-segments or straight line paths the drone can follow with the <span class="cour">DJITelloPy</span> package. More details are given in the following steps. <br><br>
 
-			<h4> Step 1: Download and Configure <span class="cour">TelloPy</span> API</h4><br>
-			Every robot has a computer (AKA the "brains") that processes the information around using various sensors and makes decissions about what the robot will do next. We'll be using the <a href="https://store.dji.com/product/tello-edu?vid=47091">DJI Tello Edu</a> (See Fig. 1) drone due to it's ease of use and safety. The DJI Tello has a tiny computer on-board the drone that it uses to maintain it's 3D pose (location and orientation) in space. However one needs to use their laptop/PC to give it higher level commands such as "go up", "go left", "turn right" and so on. To enable this, we need to install a software package called <span class="cour">TelloPy</span> from <a href="https://github.com/hanyazou/TelloPy">here</a> (Follow the instructions given on the package link). <br><br>
+			<h4> Step 0: Complete the safety training and DJI Usage training</h4><br>
+			Talk to Dr. Nitin or your PRM regarding this. You need to read and sign the safety training manual from <a href="https://drive.google.com/file/d/1uVd6neWEejQRfgWN1kHB8g-UVuAysUfV/view?usp=sharing">here</a> and submit the PDF on ELMS <a href="https://umd.instructure.com/courses/1319589/assignments/5960114">here</a>.You <b>MUST</b> do this before you start working on the drones.<br><br>
+
+
+			<h4> Step 1: Download and Configure <span class="cour">DJITelloPy</span> API</h4><br>
+			Every robot has a computer (AKA the "brains") that processes the information around using various sensors and makes decissions about what the robot will do next. We'll be using the <a href="https://store.dji.com/product/tello-edu?vid=47091">DJI Tello Edu</a> (See Fig. 1) drone due to it's ease of use and safety. The DJI Tello has a tiny computer on-board the drone which it uses to maintain it's 3D pose (location and orientation) in space. However one needs to use their laptop/PC to give it higher level commands such as "go up", "go left", "turn right" and so on. To enable this, we need to install a software package called <span class="cour">DJITelloPy</span> from <a href="https://github.com/damiafuentes/DJITelloPy">here</a> (Follow the instructions given on the package link). <br><br>
 
 			<img src="../../img/fire198/asn5/DJITelloInAction2.png" width=70% alt="" class="img-fluid"><br>
 			Fig. 1: DJI Tello Edu we'll be using in the flight experiments, Left: In action, Right: Zoomed-in view.<br><br>
 
 			<h4> Step 2: Follow Trajectories</h4><br>
-			As I mentioed before, we want to break down a trajectory/path into a set of straight lines (since our API directly supports straight line trajectories). In the following sub-steps you'll come-up with the mathematical model for achieving a trajectory and implement them on the DJI Tello drone.<br><br>
+			As I mentioed before, we want to break down a trajectory/path into a set of straight lines (since our API directly supports straight line trajectories). In the following sub-steps you'll come-up with the algorithm or mathematical model for achieving a trajectory and implement them on the DJI Tello drone.<br><br>
 
 			<h5> Step 2a: 2D Straight Line</h4><br>
 			Go forward 1m maintaining your current height (See figure below). <br><br>
 			<img src="../../img/fire198/asn5/StraightLine2D.png" width=30% alt="" class="img-fluid"><br>
 			Fig. 2: 2D Straight Line trajectory.<br><br>
 
-			<h5> Step 2b: 2D Diagonal Straight Line</h4><br>
+			<!-- <h5> Step 2b: 2D Diagonal Straight Line</h4><br>
 			Go forward and left by 1m (as a diagonal line) maintaining your current height and facing forward (See figure below). <br><br>
 			<img src="../../img/fire198/asn5/DiagonalStraightLine2D.png" width=50% alt="" class="img-fluid"><br>
-			Fig. 2: 2D Diagonal Straight Line trajectory.<br><br>
+			Fig. 2: 2D Diagonal Straight Line trajectory.<br><br> -->
 
-			<h5> Step 2c: 2D Circle</h4><br>
+			<h5> Step 2b: 2D Square 1</h4><br>
+			Make a square of side length 1m maintaining your current height while maintaining forward orientation (See figure below). <br><br>
+			<img src="../../img/fire198/asn5/Square1.png" width=100% alt="" class="img-fluid"><br>
+			Fig. 2: 2D Square 1 trajectory (left to right shows passage of time).<br><br>
+
+			<h5> Step 2c: 2D Square 2</h4><br>
+			Make a square of side length 1m maintaining your current height while changing orientaton as shown (See figure below). <br><br>
+			<img src="../../img/fire198/asn5/Square2.png" width=100% alt="" class="img-fluid"><br>
+			Fig. 3: 2D Square 2 trajectory (left to right shows passage of time).<br><br>
+
+			<!-- <h5> Step 2c: 2D Circle</h4><br>
 			Follow a circle of radius 1m in the anti-clockwise direction from your stating point maintaining your current height. (Hint: Think about polar coordinates). You can face in any direction during the trajectory execution (See figure below). <br><br>
 			<img src="../../img/fire198/asn5/Circle2D.png" width=50% alt="" class="img-fluid"><br>
 			Fig. 2: 2D Circle trajectory.<br><br>
@@ -151,19 +165,16 @@
 			<h5> Step 2e: 3D Helix</h4><br>
 			Follow an anti-clockwise helix of at-least 1 turn of radius 1m and height 1m in clock-wise direction from your stating point. (Hint: A helix is a circle with height increasing linearly). See figure below. <br><br>
 			<img src="../../img/fire198/asn5/Helix3D.png" width=30% alt="" class="img-fluid"><br>
-			Fig. 2: 3D Helix trajectory.<br><br>
+			Fig. 2: 3D Helix trajectory.<br><br> -->
 
 			<h3> Using third-party code</h3><br>
 			You are allowed to use any code available on the internet with an appropriate citation. However, you are not allowed to submit any other classmate's work as your own. Remember collabotation amongst classmates is encouraged but plagiarism is strictly prohibited. <br><br>
 
 			 <h3> What you need to submit? </h3><br>
-			 A <span class="cour">.zip</span> file that has a document (feel free to use Word or Google Docs or any other software for this) converted to PDF with the following answers, required codes and other files as mentioned below:
+			 A <span class="cour">.zip</span> file that contains the files as mentioned below:
             <ul class="unordered-list">
-            	<li> Code (as <span class="cour">.py</span> python files and inside the document as a screenshot or copy pasted text). </li>
-            	<li> Challenges you faced in solving this assignment along with lessons learned.</li>	
-            	<li> Positive or Negative feedback about this assignment if you have any.</li>
-            	<li> Videos of DJI Tello following each of the trajectories. You'll have 5 videos. Please use the best smartphone in your team to record the videos. Make sure to keep your hand study. Make sure to record the video from outside the net (you can place the camera lens in-between the net gaps for a clear video).</li>
-            	<li> A live demonstration of all your trajectories to your PRM, ask the PRM to record a video each of the trajectories (this is separate from the videos you will record yourself).</li>
+            	<li> Code (as <span class="cour">.py</span> python files.</li>
+            	<li> Videos of DJI Tello following each of the trajectories. You'll have 3 videos. Please use the best smartphone in your team to record the videos. Make sure to keep your hand study. Make sure to record the video from outside the net (you can place the camera lens in-between the net gaps for a clear video).</li>
             </ul><br><br>
             <b> IMPORTANT NOTE: </b>
 			The submissions are made through ELMS with the name <span class=cour>ASN5_DirID.pdf</span>. Here, <span class=cour>DirID</span> is your directory ID, i.e., the first part of your terpmail email address. For e.g., if your terpmail email address is <span class=cour>ABCD@terpmail.umd.edu</span>, then your <span class=cour>DirID</span> is <span class=cour>ABCD</span>.  Keep your submissions professional, grammatically correct without spelling mistakes. Do not use slangs and chat shorthands on your submissions. <b>You'll get 25% grade penalty for not following the submission guidelines.</b>  <br><br>
